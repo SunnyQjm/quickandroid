@@ -1,2 +1,4 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="cn.qjm253.quick_android_base"/>
+          package="cn.qjm253.quick_android_base">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+</manifest>
