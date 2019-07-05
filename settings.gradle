@@ -1,0 +1,1 @@
+include ':app', ':quick_android_base', ':quick_android_mvp'
