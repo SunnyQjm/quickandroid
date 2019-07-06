@@ -8,12 +8,13 @@ import com.orhanobut.logger.Logger
 object QuickAndroid {
     var APP_NAME = "QuickAndroid"
 
-    fun appName(appName: String): QuickAndroid {
+    fun appName(appName: String = "quick_android"): QuickAndroid {
         APP_NAME = appName
         return this
     }
 
-    fun init(context: Application) {
+    fun init(context: Application): QuickAndroid {
         Logger.addLogAdapter(AndroidLogAdapter())
+        return this
     }
 }
