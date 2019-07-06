@@ -29,12 +29,18 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation "androidx.appcompat:appcompat:${appcompact_version}"
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -50,27 +56,11 @@ dependencies {
     implementation 'com.github.SunnyQjm:ParallaxBackLayout:1.0'
 //    implementation 'com.github.anzewei:parallaxbacklayout:1.1.9'
 
-    // Logger
-    implementation 'com.orhanobut:logger:2.2.0'
 
-    // Retrofit
-    implementation "com.squareup.retrofit2:retrofit:${retrofit_version}"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:${retrofit_version}"
-    implementation "com.squareup.retrofit2:converter-gson:${retrofit_version}"
-
-    // Okhttp
-    implementation "com.squareup.okhttp3:okhttp:${okhttp_version}"
 
     // PersistentCookieJar
     implementation "com.github.franmontiel:PersistentCookieJar:${persistent_cookie_jar_version}"
 
-    // RxJava
-    // RxAndroid
-    implementation "io.reactivex.rxjava2:rxandroid:${rx_android_version}"
-    implementation "io.reactivex.rxjava2:rxjava:${rx_java}"
-    // RxKotlin
-    implementation "io.reactivex.rxjava2:rxkotlin:${rx_kotlin}"
 
-
-    implementation project(path: ':quick_android_base')
+    api project(path: ':quick_android_base')
 }

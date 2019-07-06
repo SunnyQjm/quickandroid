@@ -38,6 +38,8 @@ object QuickAndroidMVPAPIManager {
         if (enablePersistentCookieJar) {
             okhttpBuilder.cookieJar(PersistentCookieJar(SetCookieCache(), SharedPrefsCookiePersistor(application)))
         }
+
+        this.baseUrl = baseUrl
         client = okhttpBuilder
             .build()
     }
@@ -45,18 +47,20 @@ object QuickAndroidMVPAPIManager {
     /**
      * 注册一个服务，支持Json解析
      */
-    fun <T: Any> registerService(serviceClass: Class<T>) {
+    fun <T> registerService(serviceClass: Class<T>): T {
         val newService = createService(serviceClass, GsonConverterFactory.create())
-        services.add(newService)
+        services.add(newService!!)
+        return newService
     }
 
-    fun <T> getService(serviceClass: Class<T>): T? {
+    fun <T> getService(serviceClass: Class<T>): T {
+        var result: T? = null
         services.forEach {
-            if(it.javaClass == serviceClass ) {
-                return it as? T
+            if(it as? T != null ) {
+                result = it
             }
         }
-        return null
+        return result ?: registerService(serviceClass)
     }
 
     fun <T> createService(serviceClass: Class<T>, vararg factory: Converter.Factory): T {

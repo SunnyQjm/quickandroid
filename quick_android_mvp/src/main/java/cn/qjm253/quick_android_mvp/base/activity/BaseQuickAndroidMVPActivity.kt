@@ -33,9 +33,9 @@ abstract class BaseQuickAndroidMVPActivity<P : BasePresenter<*, *>> : BaseQuickA
     }
 
 
-    override fun onError(exception: MVPExceptionWrapper) {
+    override fun onError(e: Throwable) {
         // 打印错误
-        Logger.e(exception.originException, exception.originException.message ?: "")
+        Logger.e(e, e.message ?: "")
     }
 
 

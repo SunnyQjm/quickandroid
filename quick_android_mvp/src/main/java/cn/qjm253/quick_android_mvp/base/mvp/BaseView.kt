@@ -10,7 +10,7 @@ interface BaseView {
     /**
      * 通用的错误回调，应在Activity或者Fragment中实现
      */
-    fun onError(exception: MVPExceptionWrapper)
+    fun onError(e: Throwable)
 
     /**
      * 显示吐司弹窗

@@ -28,36 +28,48 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation "androidx.appcompat:appcompat:${appcompact_version}"
+
     // gson
-    implementation 'com.google.code.gson:gson:2.8.5'
+    api "com.google.code.gson:gson:${gson_version}"
 
     // Glide
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
-    kapt 'com.github.bumptech.glide:compiler:4.9.0'
+    api "com.github.bumptech.glide:glide:${glide_version}"
+    kapt "com.github.bumptech.glide:compiler:${glide_version}"
 
     // RxPermission
-    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+    api "com.github.tbruyelle:rxpermissions:${rx_permission_version}"
 
     // RxJava
     // RxAndroid
-    implementation "io.reactivex.rxjava2:rxandroid:${rx_android_version}"
-    implementation "io.reactivex.rxjava2:rxjava:${rx_java}"
+    api "io.reactivex.rxjava2:rxandroid:${rx_android_version}"
+    api "io.reactivex.rxjava2:rxjava:${rx_java}"
     // RxKotlin
-    implementation "io.reactivex.rxjava2:rxkotlin:${rx_kotlin}"
+    api "io.reactivex.rxjava2:rxkotlin:${rx_kotlin}"
 
     // BRVAH
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
 
     // Retrofit
-    implementation "com.squareup.retrofit2:retrofit:${retrofit_version}"
+    api "com.squareup.retrofit2:retrofit:${retrofit_version}"
+    api "com.squareup.retrofit2:retrofit:${retrofit_version}"
+    api "com.squareup.retrofit2:adapter-rxjava2:${retrofit_version}"
+    api "com.squareup.retrofit2:converter-gson:${retrofit_version}"
 
     // Okhttp
-    implementation "com.squareup.okhttp3:okhttp:${okhttp_version}"
+    api "com.squareup.okhttp3:okhttp:${okhttp_version}"
+
+    // Logger
+    api 'com.orhanobut:logger:2.2.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'

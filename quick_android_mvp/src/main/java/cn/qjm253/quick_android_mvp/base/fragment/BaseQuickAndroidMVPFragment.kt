@@ -5,7 +5,6 @@ import androidx.lifecycle.Lifecycle
 import cn.qjm253.quick_android_base.extensions.toast
 import cn.qjm253.quick_android_mvp.base.mvp.BasePresenter
 import cn.qjm253.quick_android_mvp.base.mvp.BaseView
-import cn.qjm253.quick_android_mvp.exceptions.MVPExceptionWrapper
 import com.orhanobut.logger.Logger
 import com.uber.autodispose.AutoDispose
 import com.uber.autodispose.AutoDisposeConverter
@@ -35,8 +34,8 @@ abstract class BaseQuickAndroidMVPFragment<P: BasePresenter<*, *>>
 
 
 
-    override fun onError(exception: MVPExceptionWrapper) {
-        Logger.e(exception.originException, exception.originException.message ?: "")
+    override fun onError(e: Throwable) {
+        Logger.e(e, e.message ?: "")
     }
 
     override fun doToast(message: String, duration: Int) {
