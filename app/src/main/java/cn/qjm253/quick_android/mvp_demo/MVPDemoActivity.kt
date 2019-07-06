@@ -27,5 +27,9 @@ class MVPDemoActivity : BaseQuickAndroidMVPActivity<MVPDemoActivityPresenter>(),
             val city = etCity.text.toString()
             mPresenter.getWeather(city)
         }
+
+        mPresenter.testSuccess()
+        mPresenter.testError()
+        mPresenter.testRetryWhen()
     }
 }

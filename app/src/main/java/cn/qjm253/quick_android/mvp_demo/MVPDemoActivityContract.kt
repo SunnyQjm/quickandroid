@@ -16,5 +16,8 @@ interface MVPDemoActivityContract {
 
     abstract class Presenter : BasePresenter<View, Model>() {
         abstract fun getWeather(city: String)
+        abstract fun testSuccess()
+        abstract fun testError()
+        abstract fun testRetryWhen()
     }
 }

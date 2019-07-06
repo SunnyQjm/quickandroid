@@ -3,7 +3,12 @@ package cn.qjm253.quick_android
 import android.app.Application
 import cn.qjm253.quick_android_base.QuickAndroid
 import cn.qjm253.quick_android_mvp.*
+import cn.qjm253.quick_android_mvp.exceptions.MVPAPIResultDealNeedRetryException
+import cn.qjm253.quick_android_mvp.extensions.e
+import cn.qjm253.quick_android_mvp.extensions.i
+import cn.qjm253.quick_android_mvp.model.inernet.rx.QuickAndroidMVPResultDeal
 import com.orhanobut.logger.Logger
+import io.reactivex.Observable
 
 class App : Application() {
     override fun onCreate() {
@@ -23,5 +28,30 @@ class App : Application() {
             .addOnAPICompleteListener {
                 Logger.i("API onComplete")
             }
+            .registerAPIResultDeal(object : QuickAndroidMVPResultDeal(
+                arrayOf(
+                    -1 to "网络请求失败"
+                ),
+                arrayOf(
+                    0 to "网络请求成功"
+                ),
+                arrayOf(
+                    -2 to "Token失效"
+                )
+            ) {
+                override fun dealRetry(t: Throwable): Observable<Int> {
+                    t.e("dealRetry")
+                    return Observable.error(t)
+                }
+
+                override fun normalDeal(code: Int, description: String) {
+                    "normalDeal => code: $code, description: $description".i()
+                }
+
+                override fun errorDeal(code: Int, description: String) {
+                    "errorDeal => code: $code, description: $description".e()
+                }
+
+            })
     }
 }

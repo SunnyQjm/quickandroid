@@ -3,8 +3,8 @@ package cn.qjm253.quick_android_mvp
 import android.app.Application
 import cn.qjm253.quick_android_base.QuickAndroid
 import cn.qjm253.quick_android_mvp.model.inernet.QuickAndroidMVPAPIManager
+import cn.qjm253.quick_android_mvp.model.inernet.rx.QuickAndroidMVPResultDeal
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper
-import io.reactivex.Observable
 
 object QuickAndroidMVP {
 
@@ -109,7 +109,26 @@ object QuickAndroidMVP {
         onErrorListeners.clear()
     }
 
+
+    /////////////////////////////////////////////////////
+    ///////////  网络请求结果统一处理
+    /////////////////////////////////////////////////////
+
+
+    var quickAndroidMVPResultDeal: QuickAndroidMVPResultDeal? = null
+
+    /**
+     * 注册App网络请求结果的统一处理
+     *
+     * @see QuickAndroidMVPResultDeal
+     */
+    fun registerAPIResultDeal(quickAndroidMVPResultDeal: QuickAndroidMVPResultDeal): QuickAndroidMVP {
+        this.quickAndroidMVPResultDeal = quickAndroidMVPResultDeal
+        return this
+    }
+
 }
+
 
 
 /*******************************************************
@@ -182,3 +201,10 @@ fun QuickAndroid.clearOnAPIErrorListeners(): QuickAndroid {
     return this
 }
 
+/**
+ * @see QuickAndroidMVP.registerAPIResultDeal
+ */
+fun QuickAndroid.registerAPIResultDeal(quickAndroidMVPResultDeal: QuickAndroidMVPResultDeal): QuickAndroid {
+    QuickAndroidMVP.registerAPIResultDeal(quickAndroidMVPResultDeal)
+    return this
+}
