@@ -53,5 +53,24 @@ dependencies {
     // Logger
     implementation 'com.orhanobut:logger:2.2.0'
 
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:${retrofit_version}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${retrofit_version}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofit_version}"
+
+    // Okhttp
+    implementation "com.squareup.okhttp3:okhttp:${okhttp_version}"
+
+    // PersistentCookieJar
+    implementation "com.github.franmontiel:PersistentCookieJar:${persistent_cookie_jar_version}"
+
+    // RxJava
+    // RxAndroid
+    implementation "io.reactivex.rxjava2:rxandroid:${rx_android_version}"
+    implementation "io.reactivex.rxjava2:rxjava:${rx_java}"
+    // RxKotlin
+    implementation "io.reactivex.rxjava2:rxkotlin:${rx_kotlin}"
+
+
     implementation project(path: ':quick_android_base')
 }

@@ -45,20 +45,19 @@ dependencies {
 
     // RxJava
     // RxAndroid
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.10'
+    implementation "io.reactivex.rxjava2:rxandroid:${rx_android_version}"
+    implementation "io.reactivex.rxjava2:rxjava:${rx_java}"
     // RxKotlin
-    implementation 'io.reactivex.rxjava2:rxkotlin:2.2.0'
-
-    // AutoDispose
-    implementation "com.uber.autodispose:autodispose:${AUTO_DISPOSE_VERSION}"
-    implementation "com.uber.autodispose:autodispose-android:${AUTO_DISPOSE_VERSION}"
+    implementation "io.reactivex.rxjava2:rxkotlin:${rx_kotlin}"
 
     // BRVAH
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
 
     // Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+    implementation "com.squareup.retrofit2:retrofit:${retrofit_version}"
+
+    // Okhttp
+    implementation "com.squareup.okhttp3:okhttp:${okhttp_version}"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
