@@ -1,4 +1,4 @@
-package cn.qjm253.quick_android_mvp.base.fragment
+package cn.qjm253.quick_android_base.base.fragment
 
 import android.content.Context
 import android.net.Uri

@@ -2,10 +2,10 @@ package cn.qjm253.quick_android_mvp.base.activity
 
 import android.os.Bundle
 import androidx.lifecycle.Lifecycle
+import cn.qjm253.quick_android_base.base.activity.BaseQuickAndroidActivity
 import cn.qjm253.quick_android_base.extensions.toast
 import cn.qjm253.quick_android_mvp.base.mvp.BasePresenter
 import cn.qjm253.quick_android_mvp.base.mvp.BaseView
-import cn.qjm253.quick_android_mvp.exceptions.MVPExceptionWrapper
 import com.orhanobut.logger.Logger
 import com.uber.autodispose.AutoDispose
 import com.uber.autodispose.AutoDisposeConverter

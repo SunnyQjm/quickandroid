@@ -167,3 +167,11 @@
 -dontwarn okhttp3.internal.platform.ConscryptPlatform
 
 ##---------------Begin: End---------------##
+
+##---------------Begin: ParallaxBackLayout---------------##
+-keep public enum com.github.anzewei.parallaxbacklayout.ParallaxBack$** {
+    **[] $VALUES;
+    public *;
+}
+##---------------End: ParallaxBackLayout---------------##
+

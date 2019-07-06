@@ -32,8 +32,3 @@
 
 
 
-##---------------Begin: ParallaxBackLayout---------------##
--keep public enum com.github.anzewei.parallaxbacklayout.ParallaxBack$** {
-    **[] $VALUES;
-    public *;
-}

@@ -1,4 +1,4 @@
-package cn.qjm253.quick_android_mvp.base.activity
+package cn.qjm253.quick_android_base.base.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

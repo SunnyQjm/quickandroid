@@ -2,6 +2,7 @@ package cn.qjm253.quick_android_mvp.base.fragment
 
 import android.os.Bundle
 import androidx.lifecycle.Lifecycle
+import cn.qjm253.quick_android_base.base.fragment.BaseQuickAndroidFragment
 import cn.qjm253.quick_android_base.extensions.toast
 import cn.qjm253.quick_android_mvp.base.mvp.BasePresenter
 import cn.qjm253.quick_android_mvp.base.mvp.BaseView
