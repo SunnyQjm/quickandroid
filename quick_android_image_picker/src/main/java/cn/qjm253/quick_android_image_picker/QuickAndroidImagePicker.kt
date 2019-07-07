@@ -2,6 +2,9 @@ package cn.qjm253.quick_android_image_picker
 
 import android.content.Context
 import cn.qjm253.quick_android_base.QuickAndroid
+import cn.qjm253.quick_android_base.extensions.jumpTo
+import cn.qjm253.quick_android_base.params.IntentParam
+import cn.qjm253.quick_android_image_picker.activity.QuickAndroidClipImageActivity
 import com.qingmei2.rximagepicker.core.RxImagePicker
 import com.qingmei2.rximagepicker.entity.Result
 import com.qingmei2.rximagepicker.ui.ICustomPickerConfiguration
@@ -59,6 +62,17 @@ object QuickAndroidImagePicker {
             .openCamera(context)
     }
 
+    /**
+     * 跳转到裁剪页面裁剪图片
+     */
+    fun startClipImage(context: Context, path: String, multiple: Float = 0.3f) {
+        context.jumpTo(
+            QuickAndroidClipImageActivity::class.java, IntentParam()
+                .add(QuickAndroidClipImageActivity.QUICK_ANDROID_CLIP_IMAGE_IMAGE_PATH, path)
+                .add(QuickAndroidClipImageActivity.QUICK_ANDROID_CLIP_IMAGE_MULTIPLE, multiple)
+        )
+    }
+
 }
 
 //////////////////////////////////////////////////////////
@@ -92,7 +106,9 @@ fun QuickAndroid.openCamera(context: Context): Observable<Result> {
     return QuickAndroidImagePicker.openCamera(context)
 }
 
-
+fun QuickAndroid.startClipImage(context: Context, path: String, multiple: Float = 0.3f) {
+    return QuickAndroidImagePicker.startClipImage(context, path, multiple)
+}
 
 
 //////////////////////////////////////////////////////////
@@ -122,4 +138,8 @@ fun Context.openWechatStyleGallery(
 
 fun Context.openCamera(): Observable<Result> {
     return QuickAndroidImagePicker.openCamera(this)
+}
+
+fun Context.startClipImage(path: String, multiple: Float = 0.3f) {
+    return QuickAndroidImagePicker.startClipImage(this, path, multiple)
 }

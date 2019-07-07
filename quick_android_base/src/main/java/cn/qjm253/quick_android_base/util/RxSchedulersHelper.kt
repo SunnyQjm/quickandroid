@@ -1,4 +1,4 @@
-package cn.qjm253.quick_android_mvp.model.inernet.rx
+package cn.qjm253.quick_android_base.util
 
 import io.reactivex.ObservableTransformer
 import io.reactivex.android.schedulers.AndroidSchedulers

@@ -1,10 +1,12 @@
 package cn.qjm253.quick_android_base.base.activity
 
 import android.Manifest
+import android.net.Uri
 import android.os.Bundle
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import cn.qjm253.quick_android_base.R
+import cn.qjm253.quick_android_base.base.fragment.BaseQuickAndroidFragment
 import com.github.anzewei.parallaxbacklayout.ParallaxBack
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper
 import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout
@@ -15,7 +17,8 @@ import pub.devrel.easypermissions.EasyPermissions
  * @date 19-7-7 上午8:43
  */
 @ParallaxBack
-abstract class BaseQuickAndroidActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
+abstract class BaseQuickAndroidActivity : AppCompatActivity(),
+    EasyPermissions.PermissionCallbacks, BaseQuickAndroidFragment.OnFragmentInteractionListener {
 
     companion object {
         const val EP_CAMERA = 1
@@ -102,5 +105,8 @@ abstract class BaseQuickAndroidActivity : AppCompatActivity(), EasyPermissions.P
 
     open fun requestCamera(@StringRes tip: Int = R.string.camera_permission_require) {
         requestPermissions(arrayOf(Manifest.permission.CAMERA), tip, EP_CAMERA)
+    }
+
+    override fun onFragmentInteraction(uri: Uri?) {
     }
 }

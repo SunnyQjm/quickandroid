@@ -9,8 +9,15 @@ import cn.qjm253.quick_android_base.extensions.e
 import cn.qjm253.quick_android_base.extensions.i
 import cn.qjm253.quick_android_base.extensions.jumpTo
 import cn.qjm253.quick_android_base.extensions.toJson
+import cn.qjm253.quick_android_base.params.IntentParam
+import cn.qjm253.quick_android_base.util.ContentUriUtil
+import cn.qjm253.quick_android_base.util.FileUtils
+import cn.qjm253.quick_android_image_picker.activity.QuickAndroidClipImageActivity
 import cn.qjm253.quick_android_image_picker.openWechatStyleGallery
+import cn.qjm253.quick_android_image_picker.startClipImage
 import cn.qjm253.quick_android_qrcode.activity.QuickAndroidQrCodeActivity
+import com.qingmei2.rximagepicker_extension.MimeType
+import com.qingmei2.rximagepicker_extension_wechat.WechatConfigrationBuilder
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseQuickAndroidActivity() {
@@ -28,8 +35,10 @@ class MainActivity : BaseQuickAndroidActivity() {
         }
 
         btnWechatStyleImagePicker.setOnClickListener {
-            val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            val permissions = arrayOf(
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+            )
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 requestPermissions(permissions, 1)
             } else {
@@ -40,10 +49,20 @@ class MainActivity : BaseQuickAndroidActivity() {
 
     override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {
         super.onPermissionsGranted(requestCode, perms)
-        when(requestCode) {
+        when (requestCode) {
             1 -> {          // 打开微信样式的图片选择器
-                openWechatStyleGallery()
+                openWechatStyleGallery(
+                    WechatConfigrationBuilder(
+                        MimeType.ofImage(),
+                        false
+                    )
+                        .maxSelectable(1)
+                        .countable(true)
+                        .spanCount(4)
+                        .build()
+                )
                     .subscribe({
+                        startClipImage(ContentUriUtil.getPath(this, it.uri))
                         it.toJson().i()
                     }, {
                         it.e()

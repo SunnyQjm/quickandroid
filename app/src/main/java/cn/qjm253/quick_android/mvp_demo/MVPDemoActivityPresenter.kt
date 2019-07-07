@@ -1,7 +1,7 @@
 package cn.qjm253.quick_android.mvp_demo
 
 import cn.qjm253.quick_android_base.extensions.toJson
-import cn.qjm253.quick_android_mvp.model.inernet.rx.RxSchedulersHelper
+import cn.qjm253.quick_android_base.util.RxSchedulersHelper
 import cn.qjm253.quick_android_mvp.model.inernet.rx.qaHandleResult
 import cn.qjm253.quick_android_mvp.model.inernet.rx.qaSubscribe
 import cn.qjm253.quick_android_mvp.model.response.BaseQuickAndroidResponseBody
