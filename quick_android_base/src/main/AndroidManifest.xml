@@ -9,7 +9,7 @@
 
     <application
     >
-        <activity android:name=".activity.QuickAndroidQrCodeActivity">
+        <activity android:name="cn.qjm253.quick_android_qrcode.activity.QuickAndroidQrCodeActivity">
         </activity>
     </application>
 

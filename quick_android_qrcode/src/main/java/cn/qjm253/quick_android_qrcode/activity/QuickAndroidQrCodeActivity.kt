@@ -1,12 +1,12 @@
-package cn.qjm253.quick_android_base.activity
+package cn.qjm253.quick_android_qrcode.activity
 
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import cn.qjm253.quick_android_base.R
 import cn.qjm253.quick_android_base.base.fragment.BaseQuickAndroidFragment
 import cn.qjm253.quick_android_base.extensions.addFragmentToActivity
-import cn.qjm253.quick_android_base.fragment.QuickAndroidQrCodeFragment
+import cn.qjm253.quick_android_qrcode.R
+import cn.qjm253.quick_android_qrcode.fragment.QuickAndroidQrCodeFragment
 import com.gyf.immersionbar.BarHide
 import com.gyf.immersionbar.ImmersionBar
 

@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/quick_android_base" />
             <option value="$PROJECT_DIR$/quick_android_mvp" />
+            <option value="$PROJECT_DIR$/quick_android_qrcode" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

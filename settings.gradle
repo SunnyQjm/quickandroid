@@ -1,1 +1,1 @@
-include ':app', ':quick_android_base', ':quick_android_mvp'
+include ':app', ':quick_android_base', ':quick_android_mvp', ':quick_android_qrcode'

@@ -76,11 +76,8 @@ dependencies {
     // ParallaxBackLayout
     api 'com.github.SunnyQjm:ParallaxBackLayout:1.0'
 
-    // zxing 二维码识别和生成
-    implementation "cn.bingoogolapple:bga-qrcode-zxing:${bag_qrcode_zxing_version}"
-
     // ImmersionBar
-    implementation "com.gyf.immersionbar:immersionbar:${immersion_bar_version}"
+    api "com.gyf.immersionbar:immersionbar:${immersion_bar_version}"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'

@@ -1,14 +1,14 @@
-package cn.qjm253.quick_android_base.fragment
+package cn.qjm253.quick_android_qrcode.fragment
 
 import android.content.Intent
 import cn.bingoogolapple.qrcode.core.QRCodeView
-import cn.qjm253.quick_android_base.R
 import cn.qjm253.quick_android_base.base.fragment.BaseQuickAndroidFragment
 import cn.qjm253.quick_android_base.extensions.e
 import cn.qjm253.quick_android_base.extensions.i
 import cn.qjm253.quick_android_base.extensions.vibrator
-import kotlinx.android.synthetic.main.fragment_quick_android_qrcode.*
 import cn.qjm253.quick_android_base.params.IntentParam
+import cn.qjm253.quick_android_qrcode.R
+import kotlinx.android.synthetic.main.fragment_quick_android_qrcode.*
 
 
 /**
