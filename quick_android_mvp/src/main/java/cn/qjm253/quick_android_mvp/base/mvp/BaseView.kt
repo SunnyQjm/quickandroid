@@ -5,6 +5,10 @@ import androidx.annotation.StringRes
 import cn.qjm253.quick_android_mvp.exceptions.MVPExceptionWrapper
 import com.uber.autodispose.AutoDisposeConverter
 
+/**
+ * @author SunnyQjm
+ * @date 19-7-7 上午8:43
+ */
 interface BaseView {
 
     /**

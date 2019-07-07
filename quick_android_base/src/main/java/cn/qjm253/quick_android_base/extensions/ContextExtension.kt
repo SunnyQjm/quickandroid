@@ -14,6 +14,11 @@ import android.widget.Toast
 import cn.qjm253.quick_android_base.params.IntentParam
 import java.util.*
 
+/**
+ * @author SunnyQjm
+ * @date 19-7-7 上午8:43
+ */
+
 fun Context.toast(info: String, duration: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(this, info, duration)
         .show()

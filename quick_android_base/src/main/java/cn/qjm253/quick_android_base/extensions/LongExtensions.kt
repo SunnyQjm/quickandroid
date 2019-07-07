@@ -2,6 +2,12 @@ package cn.qjm253.quick_android_base.extensions
 
 import java.util.*
 
+/**
+ * @author SunnyQjm
+ * @date 19-7-7 上午8:43
+ */
+
+
 fun Long.toYMD(): String {
     val instance = Calendar.getInstance()
     instance.timeInMillis = this

@@ -11,6 +11,8 @@ import io.reactivex.disposables.Disposable
 
 /**
  * 网络请求结果统一处理
+ * @author SunnyQjm
+ * @date 19-7-7 上午8:43
  */
 fun <T: BaseQuickAndroidResponseBody> Observable<T>.qaHandleResult(): Observable<T> {
     return this.compose { upstream ->

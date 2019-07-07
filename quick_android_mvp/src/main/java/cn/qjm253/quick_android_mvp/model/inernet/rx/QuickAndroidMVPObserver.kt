@@ -6,6 +6,11 @@ import cn.qjm253.quick_android_mvp.base.mvp.BaseView
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 
+/**
+ * @author SunnyQjm
+ * @date 19-7-7 上午8:43
+ */
+
 abstract class QuickAndroidMVPObserver<T>(private val mView: BaseView) : Observer<T> {
 
     @CallSuper

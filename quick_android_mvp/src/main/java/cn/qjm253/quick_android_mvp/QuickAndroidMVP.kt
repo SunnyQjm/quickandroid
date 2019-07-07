@@ -6,6 +6,10 @@ import cn.qjm253.quick_android_mvp.model.inernet.QuickAndroidMVPAPIManager
 import cn.qjm253.quick_android_mvp.model.inernet.rx.QuickAndroidMVPResultDeal
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper
 
+/**
+ * @author SunnyQjm
+ * @date 19-7-7 上午8:43
+ */
 object QuickAndroidMVP {
 
     //////////////////////////////////////////

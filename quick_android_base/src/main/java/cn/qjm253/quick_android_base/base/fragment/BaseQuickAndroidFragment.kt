@@ -9,6 +9,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
 /**
+ * @author SunnyQjm
+ * @date 19-7-7 上午8:43
+ */
+
+/**
  * 支持在第一次创建视图时初始化，且不会重复添加导致重叠
  */
 abstract class BaseQuickAndroidFragment : Fragment() {

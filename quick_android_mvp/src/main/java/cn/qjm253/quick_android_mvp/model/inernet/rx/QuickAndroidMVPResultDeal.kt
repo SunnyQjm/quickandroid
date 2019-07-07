@@ -3,6 +3,11 @@ package cn.qjm253.quick_android_mvp.model.inernet.rx
 import io.reactivex.Observable
 
 
+/**
+ * @author SunnyQjm
+ * @date 19-7-7 上午8:43
+ */
+
 abstract class QuickAndroidMVPResultDeal (
     exceptionCodes: Array<Pair<Int, String>>,           // 错误的状态码对应表
     normalCodes: Array<Pair<Int, String>>,              // 除错误以外的状态码

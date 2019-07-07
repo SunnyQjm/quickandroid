@@ -13,6 +13,9 @@ import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider
 
 /**
  * MVP 模式的Activity基类
+ *
+ * @author SunnyQjm
+ * @date 19-7-7 上午8:43
  */
 abstract class BaseQuickAndroidMVPActivity<P : BasePresenter<*, *>> : BaseQuickAndroidActivity(), BaseView {
 

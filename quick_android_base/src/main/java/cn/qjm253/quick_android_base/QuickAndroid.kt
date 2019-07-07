@@ -4,7 +4,10 @@ import android.app.Application
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 
-
+/**
+ * @author SunnyQjm
+ * @date 19-7-7 上午8:43
+ */
 object QuickAndroid {
     var APP_NAME = "QuickAndroid"
 

@@ -6,7 +6,8 @@ import io.reactivex.schedulers.Schedulers
 
 /**
  * 处理Rx线程转换
- * Created by Ming.J.
+ * @author SunnyQjm
+ * @date 19-7-7 上午8:43
  */
 object RxSchedulersHelper {
 

@@ -6,6 +6,10 @@ import com.github.anzewei.parallaxbacklayout.ParallaxBack
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper
 import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout
 
+/**
+ * @author SunnyQjm
+ * @date 19-7-7 上午8:43
+ */
 @ParallaxBack
 abstract class BaseQuickAndroidActivity : AppCompatActivity() {
 

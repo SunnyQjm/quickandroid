@@ -12,6 +12,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.nio.charset.Charset
 import java.util.concurrent.TimeUnit
 
+
+/**
+ * @author SunnyQjm
+ * @date 19-7-7 上午8:43
+ */
 object QuickAndroidMVPAPIManager {
 
     val UTF8 = Charset.forName("UTF-8")

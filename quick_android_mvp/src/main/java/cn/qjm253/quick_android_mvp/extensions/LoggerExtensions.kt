@@ -2,6 +2,11 @@ package cn.qjm253.quick_android_mvp.extensions
 
 import com.orhanobut.logger.Logger
 
+/**
+ * @author SunnyQjm
+ * @date 19-7-7 上午8:43
+ */
+
 fun String.e(vararg args: Any) {
     Logger.e(this, args)
 }
