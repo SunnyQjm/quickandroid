@@ -3,6 +3,7 @@ package cn.qjm253.quick_android
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import cn.qjm253.quick_android.mvp_demo.MVPDemoActivity
+import cn.qjm253.quick_android_base.activity.QuickAndroidQrCodeActivity
 import cn.qjm253.quick_android_base.extensions.jumpTo
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -14,6 +15,10 @@ class MainActivity : AppCompatActivity() {
 
         mvpDemoBtn.setOnClickListener {
             jumpTo(MVPDemoActivity::class.java)
+        }
+
+        btnScanQrCode.setOnClickListener {
+            jumpTo(QuickAndroidQrCodeActivity::class.java)
         }
     }
 }

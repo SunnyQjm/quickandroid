@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">quick_android_base</string>
+    <string name="camera_permission_require">本功能需要请求摄像头权限</string>
 </resources>

@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -39,5 +40,5 @@ dependencies {
 
 
     api project(path: ':quick_android_base')
-    implementation project(path: ':quick_android_mvp')
+    api project(path: ':quick_android_mvp')
 }

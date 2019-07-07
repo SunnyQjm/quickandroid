@@ -1,12 +1,18 @@
 package cn.qjm253.quick_android_base.base.fragment
 
+import android.Manifest
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
+import cn.qjm253.quick_android_base.R
+import cn.qjm253.quick_android_base.base.activity.BaseQuickAndroidActivity
+import cn.qjm253.quick_android_base.params.IntentParam
+import pub.devrel.easypermissions.EasyPermissions
 
 /**
  * @author SunnyQjm
@@ -16,9 +22,17 @@ import androidx.fragment.app.Fragment
 /**
  * 支持在第一次创建视图时初始化，且不会重复添加导致重叠
  */
-abstract class BaseQuickAndroidFragment : Fragment() {
+abstract class BaseQuickAndroidFragment : Fragment(), EasyPermissions.PermissionCallbacks {
     companion object {
         private const val STATE_SAVE_IS_HIDDEN = "STATE_SAVE_IS_HIDDEN"
+
+        fun <T: Fragment> newInstance_(clazz: Class<T>, intentParam: IntentParam?): T {
+            val args = Bundle()
+            intentParam?.applyBundle(args)
+            val fragment = clazz.newInstance()
+            fragment.arguments = args
+            return fragment
+        }
     }
 
     protected var mView: View? = null
@@ -141,4 +155,37 @@ abstract class BaseQuickAndroidFragment : Fragment() {
         fun onFragmentInteraction(uri: Uri?)
     }
 
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
+    }
+
+    /**
+     * 授权成功
+     */
+    override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {
+    }
+
+    /**
+     * 授权失败
+     */
+    override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
+
+    }
+
+
+    open fun requestPermissions(permissions: Array<String>, @StringRes tip: Int, requestCode: Int) {
+        activity?.let {
+            if(EasyPermissions.hasPermissions(it, *permissions)) {
+                onPermissionsGranted(requestCode, permissions.toMutableList())
+            } else {
+                EasyPermissions.requestPermissions(this, getString(tip), requestCode, *permissions)
+            }
+        }
+    }
+
+
+    open fun requestCamera(@StringRes tip: Int = R.string.camera_permission_require) {
+        requestPermissions(arrayOf(Manifest.permission.CAMERA), tip, BaseQuickAndroidActivity.EP_CAMERA)
+    }
 }

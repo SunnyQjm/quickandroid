@@ -3,9 +3,8 @@ package cn.qjm253.quick_android
 import android.app.Application
 import cn.qjm253.quick_android_base.QuickAndroid
 import cn.qjm253.quick_android_mvp.*
-import cn.qjm253.quick_android_mvp.exceptions.MVPAPIResultDealNeedRetryException
-import cn.qjm253.quick_android_mvp.extensions.e
-import cn.qjm253.quick_android_mvp.extensions.i
+import cn.qjm253.quick_android_base.extensions.e
+import cn.qjm253.quick_android_base.extensions.i
 import cn.qjm253.quick_android_mvp.model.inernet.rx.QuickAndroidMVPResultDeal
 import com.orhanobut.logger.Logger
 import io.reactivex.Observable

@@ -1,6 +1,7 @@
 package cn.qjm253.quick_android_base.params
 
 import android.content.Intent
+import android.os.Bundle
 import android.os.Parcelable
 import java.io.Serializable
 
@@ -42,6 +43,33 @@ class IntentParam(val keys: MutableList<String> = mutableListOf(),
                 is DoubleArray -> intent.putExtra(keys[i], values[i] as DoubleArray)
                 is Serializable -> intent.putExtra(keys[i], values[i] as Serializable)
                 is Array<*> -> intent.putExtra(keys[i], values[i] as Array<out String>)
+            }
+        }
+    }
+
+    fun applyBundle(bundle: Bundle) {
+        for(i in 0 until keys.size){
+            when(values[i]){
+                is Boolean -> bundle.putBoolean(keys[i], values[i] as Boolean)
+                is Byte -> bundle.putByte(keys[i], values[i] as Byte)
+                is Char -> bundle.putChar(keys[i], values[i] as Char)
+                is Short -> bundle.putShort(keys[i], values[i] as Short)
+                is Int -> bundle.putInt(keys[i], values[i] as Int)
+                is Long -> bundle.putLong(keys[i], values[i] as Long)
+                is Float -> bundle.putFloat(keys[i], values[i] as Float)
+                is Double -> bundle.putDouble(keys[i], values[i] as Double)
+                is String -> bundle.putString(keys[i], values[i] as String)
+                is CharSequence -> bundle.putCharSequence(keys[i], values[i] as CharSequence)
+                is Parcelable -> bundle.putParcelable(keys[i], values[i] as Parcelable)
+                is BooleanArray -> bundle.putBooleanArray(keys[i], values[i] as BooleanArray)
+                is ByteArray -> bundle.putByteArray(keys[i], values[i] as ByteArray)
+                is CharArray -> bundle.putCharArray(keys[i], values[i] as CharArray)
+                is ShortArray -> bundle.putShortArray(keys[i], values[i] as ShortArray)
+                is IntArray -> bundle.putIntArray(keys[i], values[i] as IntArray)
+                is LongArray -> bundle.putLongArray(keys[i], values[i] as LongArray)
+                is FloatArray -> bundle.putFloatArray(keys[i], values[i] as FloatArray)
+                is DoubleArray -> bundle.putDoubleArray(keys[i], values[i] as DoubleArray)
+                is Serializable -> bundle.putSerializable(keys[i], values[i] as Serializable)
             }
         }
     }

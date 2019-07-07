@@ -1,4 +1,4 @@
-package cn.qjm253.quick_android_mvp.extensions
+package cn.qjm253.quick_android_base.extensions
 
 import com.orhanobut.logger.Logger
 

@@ -3,5 +3,14 @@
           package="cn.qjm253.quick_android_base">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <application
+    >
+        <activity android:name=".activity.QuickAndroidQrCodeActivity">
+        </activity>
+    </application>
 
 </manifest>
