@@ -1,12 +1,6 @@
 apply plugin: 'com.android.library'
-
-apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
-
-apply plugin: 'kotlin-kapt'
-
-def AUTO_DISPOSE_VERSION = "1.3.0"
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 28
@@ -29,33 +23,27 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "androidx.appcompat:appcompat:${appcompact_version}"
+    // RxImagePicker
+    api "com.github.qingmei2:rximagepicker:${rx_image_picker_version}"
+    api "com.github.qingmei2:rximagepicker_support:${rx_image_picker_version}"
+    // Zhihu picture selector
+    api "com.github.qingmei2:rximagepicker_support_zhihu:${rx_image_picker_version}"
+    // WeChat picture selector
+    api "com.github.qingmei2:rximagepicker_support_wechat:${rx_image_picker_version}"
 
+    implementation 'androidx.appcompat:appcompat:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    // AutoDispose
-    implementation "com.uber.autodispose:autodispose:${AUTO_DISPOSE_VERSION}"
-    implementation "com.uber.autodispose:autodispose-android:${AUTO_DISPOSE_VERSION}"
-    implementation "com.uber.autodispose:autodispose-lifecycle:${AUTO_DISPOSE_VERSION}"
-    implementation "com.uber.autodispose:autodispose-android-archcomponents:${AUTO_DISPOSE_VERSION}"
-
-
-
-    // PersistentCookieJar
-    implementation "com.github.franmontiel:PersistentCookieJar:${persistent_cookie_jar_version}"
-
-
     api project(path: ':quick_android_base')
+
+}
+repositories {
+    mavenCentral()
 }

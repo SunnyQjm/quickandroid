@@ -7,10 +7,6 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.CAMERA"/>
 
-    <application
-    >
-        <activity android:name="cn.qjm253.quick_android_qrcode.activity.QuickAndroidQrCodeActivity">
-        </activity>
-    </application>
+
 
 </manifest>

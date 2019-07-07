@@ -42,4 +42,5 @@ dependencies {
     api project(path: ':quick_android_base')
     api project(path: ':quick_android_mvp')
     api project(path: ':quick_android_qrcode')
+    api project(path: ':quick_android_image_picker')
 }
