@@ -22,7 +22,7 @@ import pub.devrel.easypermissions.EasyPermissions
 /**
  * 支持在第一次创建视图时初始化，且不会重复添加导致重叠
  */
-abstract class BaseQuickAndroidFragment : Fragment(), EasyPermissions.PermissionCallbacks {
+abstract class  BaseQuickAndroidFragment : Fragment(), EasyPermissions.PermissionCallbacks {
     companion object {
         private const val STATE_SAVE_IS_HIDDEN = "STATE_SAVE_IS_HIDDEN"
 

@@ -13,6 +13,8 @@
             <option value="$PROJECT_DIR$/quick_android_image_picker" />
             <option value="$PROJECT_DIR$/quick_android_mvp" />
             <option value="$PROJECT_DIR$/quick_android_qrcode" />
+            <option value="$PROJECT_DIR$/quick_android_rx_permission" />
+            <option value="$PROJECT_DIR$/quick_android_webview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

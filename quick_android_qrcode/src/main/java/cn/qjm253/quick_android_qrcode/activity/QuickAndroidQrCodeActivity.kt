@@ -1,19 +1,14 @@
 package cn.qjm253.quick_android_qrcode.activity
 
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import cn.qjm253.quick_android_base.base.fragment.BaseQuickAndroidFragment
+import cn.qjm253.quick_android_base.base.activity.BaseQuickAndroidActivity
 import cn.qjm253.quick_android_base.extensions.addFragmentToActivity
 import cn.qjm253.quick_android_qrcode.R
 import cn.qjm253.quick_android_qrcode.fragment.QuickAndroidQrCodeFragment
 import com.gyf.immersionbar.BarHide
 import com.gyf.immersionbar.ImmersionBar
 
-class QuickAndroidQrCodeActivity : AppCompatActivity(), BaseQuickAndroidFragment.OnFragmentInteractionListener {
-    override fun onFragmentInteraction(uri: Uri?) {
-
-    }
+class QuickAndroidQrCodeActivity : BaseQuickAndroidActivity() {
 
     companion object {
         const val QR_CODE_RESULT = QuickAndroidQrCodeFragment.QR_CODE_RESULT

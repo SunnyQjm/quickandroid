@@ -36,7 +36,7 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    api project(path: ':quick_android_base')
+    implementation project(path: ':quick_android_base')
 
     // zxing 二维码识别和生成
     implementation "cn.bingoogolapple:bga-qrcode-zxing:${bag_qrcode_zxing_version}"

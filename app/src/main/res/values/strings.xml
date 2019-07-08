@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">quick-android</string>
+    <string name="image_picker_require_rw_permission">图片选择需要获取读写权限</string>
 </resources>

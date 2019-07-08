@@ -94,17 +94,12 @@ abstract class BaseQuickAndroidActivity : AppCompatActivity(),
     }
 
 
-    open fun requestPermissions(permissions: Array<String>, @StringRes tip: Int, requestCode: Int) {
+    open fun easyRequestPermissions(permissions: Array<String>, @StringRes tip: Int, requestCode: Int) {
         if(EasyPermissions.hasPermissions(this, *permissions)) {
             onPermissionsGranted(requestCode, permissions.toMutableList())
         } else {
             EasyPermissions.requestPermissions(this, getString(tip), requestCode, *permissions)
         }
-    }
-
-
-    open fun requestCamera(@StringRes tip: Int = R.string.camera_permission_require) {
-        requestPermissions(arrayOf(Manifest.permission.CAMERA), tip, EP_CAMERA)
     }
 
     override fun onFragmentInteraction(uri: Uri?) {

@@ -57,5 +57,5 @@ dependencies {
     implementation "com.github.franmontiel:PersistentCookieJar:${persistent_cookie_jar_version}"
 
 
-    api project(path: ':quick_android_base')
+    implementation project(path: ':quick_android_base')
 }
