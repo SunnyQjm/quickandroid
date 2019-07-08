@@ -7,7 +7,7 @@ import retrofit2.http.Query
 interface TestServices {
 
     @GET("api")
-    fun getWether(
+    fun getWeather(
         @Query("city") city: String = "成都",
         @Query("version") version: String = "v1"
     ): Observable<Weather>

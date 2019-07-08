@@ -6,7 +6,7 @@ import io.reactivex.Observable
 class MVPDemoActivityModel(val mPresenter: MVPDemoActivityPresenter) : MVPDemoActivityContract.Model {
     override fun getWeather(city: String): Observable<Weather> {
         return QuickAndroidMVPAPIManager.getService(TestServices::class.java)
-            .getWether(city)
+            .getWeather(city)
     }
 
     init {

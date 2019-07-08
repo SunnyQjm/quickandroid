@@ -30,12 +30,48 @@
          * @param context                       Application 对象
          * @param baseUrl                       网络请求的前缀， eg.: https://example.cn/
          * @param enablePersistentCookieJar     是否开启Cookie的自动持久化和发送
-         *                                      如需修改侧滑触发的模式和位置，参看BaseQuickAndroidActivity
-         * @see cn.qjm253.quick_android_mvp.base.activity.BaseQuickAndroidActivity
          */
-        QuickAndroidMVP.init(
-          context, baseUrl, enablePersistentCookieJar
+        QuickAndroidMVP
+          .init(
+              context, baseUrl, enablePersistentCookieJar
+          )
+          
+  
+        // 当然，如果使用Kotlin开发也可以使用下面的统一扩展接口，参数说明同上
+        QuickAndroid.initMVP(
+            context, baseUrl, enablePersistentCookieJar
         )
+        ```
+    具体MVP架构的使用方式参考本项目的[demo](https://github.com/SunnyQjm/quickandroid/tree/master/app/src/main/java/cn/qjm253/quick_android/mvp_demo)
+
+- ### 如何使用网络请求？
+    - 添加
+    - 首先定义网络请求的Service接口（具体定义规则参看[Retrofit 官网](https://square.github.io/retrofit/)）
+        ```kotlin
+        interface TestServices {
+        
+            @GET("api")
+            fun getWeather(
+                @Query("city") city: String = "成都",
+                @Query("version") version: String = "v1"
+            ): Observable<Weather>
+        }
+        ```
+    - 使用
+        ```kotlin
+        QuickAndroidMVPAPIManager.getService(TestServices::class.java)
+              .getWeather("成都")
+              .compose(RxScheduler.io_main())
+              .subscribe({        // onNext
+        
+              }, {                // onError
+        
+              }, {                // onComplete
+        
+              })
   
         ```
-
+     
+     轻松两步便可实现网络请求
+     
+  
