@@ -22,34 +22,17 @@ object QuickAndroidMVP {
      * @param context                       Application 对象
      * @param baseUrl                       网络请求的前缀， eg.: https://example.cn/
      * @param enablePersistentCookieJar     是否开启Cookie的自动持久化和发送
-     * @param enableParallaxBack            是否开启侧滑返回操作（默认支持左侧边缘滑动返回）
-     *                                      如需修改侧滑触发的模式和位置，参看BaseQuickAndroidActivity
-     * @see cn.qjm253.quick_android_mvp.base.activity.BaseQuickAndroidActivity
      */
     fun init(
         context: Application,
         baseUrl: String = "",
-        enablePersistentCookieJar: Boolean = true,
-        enableParallaxBack: Boolean = true
+        enablePersistentCookieJar: Boolean = true
     ): QuickAndroidMVP {
-        if(enableParallaxBack) {
-            // 初始化侧滑
-            initParallaxBackLayout(context)
-        }
         QuickAndroidMVPAPIManager.init(context, enablePersistentCookieJar, baseUrl)
         return this
     }
 
 
-
-    /**
-     * 初始化侧滑操作
-     * 需要在Application当中初始化
-     */
-    private fun initParallaxBackLayout(context: Application): QuickAndroidMVP {
-        context.registerActivityLifecycleCallbacks(ParallaxHelper.getInstance())
-        return this
-    }
 
 
 
@@ -149,10 +132,9 @@ object QuickAndroidMVP {
 fun QuickAndroid.initMVP(
     context: Application,
     baseUrl: String = "",
-    enablePersistentCookieJar: Boolean = true,
-    enableParallaxBack: Boolean = true
+    enablePersistentCookieJar: Boolean = true
 ): QuickAndroid {
-    QuickAndroidMVP.init(context, baseUrl, enablePersistentCookieJar, enableParallaxBack)
+    QuickAndroidMVP.init(context, baseUrl, enablePersistentCookieJar)
     return this
 }
 
