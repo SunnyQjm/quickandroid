@@ -75,4 +75,48 @@
      
 
 - ### 如何对每一个网络请求添加监听？
-    - 
+    下面的所有接口都有对应 `QuickAndroid` 的扩展，如果使用`kotlin`开发的话，也可以使用`QuickAndroid.xxx`的方式来调用。
+    
+    - 添加一个可以监听所有网络请求的onComplete事件的监听器
+        ```kotlin
+        /**
+         * 添加一个网络请求 onComplete 的拦截监听
+         * 每一个使用 Observable<T>.qaSubscribe 进行订阅的网络请求的onComplete执行的时候都会触发
+         *
+         * @see cn.qjm253.quick_android_mvp.model.inernet.rx.qaSubscribe
+         */
+        QuickAndroidMVP.addOnAPICompleteListener(onComplete)
+        
+        
+        // 可以通过下面的方法清空所有对onComplete事件的监听器
+        QuickAndroidMVP.clearOnAPICompleteListeners()
+        ``` 
+        
+    - 添加一个可以监听所有网络请求的onNext事件的监听器
+        ```kotlin
+        /**
+         * 添加一个网络请求 onNext 的拦截监听
+         * 每一个使用 Observable<T>.qaSubscribe 进行订阅的网络请求的onNext执行的之前都会触发
+         *
+         * @see cn.qjm253.quick_android_mvp.model.inernet.rx.qaSubscribe
+         */
+        QuickAndroidMVP.addOnAPICompleteListener(onBeforeNextListener)
+        
+        
+        QuickAndroidMVP.clearOnAPIBeforeNextListeners()
+        ``` 
+        
+    - 添加一个可以监听所有网络请求的onError事件的监听器
+        ```kotlin
+        /**
+         * 添加一个网络请求 onError 的拦截监听
+         * 每一个使用 Observable<T>.qaSubscribe 进行订阅的网络请求的onError执行的时候都会触发
+         *
+         * @see cn.qjm253.quick_android_mvp.model.inernet.rx.qaSubscribe
+         */
+        QuickAndroidMVP.addOnAPIErrorListener(onErrorListener)
+        
+        
+        // 可以通过下面的方法清空所有对onError事件的监听器
+        QuickAndroidMVP.clearOnAPIErrorListeners()
+        ``` 
