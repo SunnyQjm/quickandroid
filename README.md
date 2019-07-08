@@ -1,4 +1,4 @@
-> # quickandroid
+# quickandroid
 > QuickAndroid一个Android快速开发的模板库，支持开箱即用的扫码、图片选择、MVP架构模式、全功能的下拉刷新和上拉加载更多（支持自定义刷新头）等等多项功能，可以根据需要引入不同的库实现不同的功能
 
 [![](https://jitpack.io/v/SunnyQjm/quickandroid.svg)](https://jitpack.io/#SunnyQjm/quickandroid)
@@ -45,7 +45,6 @@
     具体MVP架构的使用方式参考本项目的[demo](https://github.com/SunnyQjm/quickandroid/tree/master/app/src/main/java/cn/qjm253/quick_android/mvp_demo)
 
 - ### 如何使用网络请求？
-    - 添加
     - 首先定义网络请求的Service接口（具体定义规则参看[Retrofit 官网](https://square.github.io/retrofit/)）
         ```kotlin
         interface TestServices {
@@ -74,4 +73,6 @@
      
      轻松两步便可实现网络请求
      
-  
+
+- ### 如何对每一个网络请求添加监听？
+    - 
