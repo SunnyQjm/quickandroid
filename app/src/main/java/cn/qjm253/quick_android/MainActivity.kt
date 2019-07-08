@@ -4,10 +4,7 @@ import android.Manifest
 import android.os.Bundle
 import cn.qjm253.quick_android.mvp_demo.MVPDemoActivity
 import cn.qjm253.quick_android_base.base.activity.BaseQuickAndroidActivity
-import cn.qjm253.quick_android_base.extensions.e
-import cn.qjm253.quick_android_base.extensions.i
-import cn.qjm253.quick_android_base.extensions.jumpTo
-import cn.qjm253.quick_android_base.extensions.toJson
+import cn.qjm253.quick_android_base.extensions.*
 import cn.qjm253.quick_android_base.util.ContentUriUtil
 import cn.qjm253.quick_android_base.util.RxSchedulersHelper
 import cn.qjm253.quick_android_image_picker.openWechatStyleGallery
@@ -33,10 +30,13 @@ class MainActivity : BaseQuickAndroidActivity() {
             rxPermission
                 .request(arrayOf(Manifest.permission.CAMERA), "摄像头")
                 .compose(RxSchedulersHelper.io_main())
-                .subscribe( {
+                .subscribe({
                     "fuck?".i()
-                    if(it.granted) {
+                    if (it.granted) {
                         scanCode()
+                            .subscribe { qrResult ->
+                                toast(qrResult.content)
+                            }
                     }
                 }, {
                     it.e()
@@ -54,7 +54,7 @@ class MainActivity : BaseQuickAndroidActivity() {
             rxPermission
                 .request(permissions, "啦啦啦")
                 .subscribe {
-                    if(it.granted) {
+                    if (it.granted) {
                         openWechatStyleGallery(
                             WechatConfigrationBuilder(
                                 MimeType.ofImage(),

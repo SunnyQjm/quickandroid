@@ -40,10 +40,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation "androidx.appcompat:appcompat:${appcompact_version}"
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    testImplementation "junit:junit:${junit_version}"
+    androidTestImplementation "androidx.test:runner:${test_runner_version}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${espresso_core_version}"
 
     // AutoDispose
     implementation "com.uber.autodispose:autodispose:${AUTO_DISPOSE_VERSION}"

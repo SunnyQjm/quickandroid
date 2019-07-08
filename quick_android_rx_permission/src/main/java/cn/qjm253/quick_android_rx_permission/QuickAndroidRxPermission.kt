@@ -3,8 +3,8 @@ package cn.qjm253.quick_android_rx_permission
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import cn.qjm253.quick_android_base.QuickAndroid
+import cn.qjm253.quick_android_base.extensions.getLazySingleton
+import cn.qjm253.quick_android_base.util.RxSchedulersHelper
 import io.reactivex.Observable
 
 /**
@@ -15,72 +15,46 @@ import io.reactivex.Observable
 class QuickAndroidRxPermission {
     companion object {
         const val TAG = "QuickAndroidRxPermission"
+
+        fun create(activity: FragmentActivity): QuickAndroidRxPermission {
+            return QuickAndroidRxPermission(activity)
+        }
+
+        fun create(fragment: Fragment): QuickAndroidRxPermission {
+            return QuickAndroidRxPermission(fragment)
+        }
     }
 
     private var mRxPermissionFragment: Lazy<QuickAndroidRxPermissionFragment>
     private var requestCode = 0
 
     constructor(activity: FragmentActivity) {
-        mRxPermissionFragment = getLazySingleton(activity.supportFragmentManager)
+        mRxPermissionFragment = activity.supportFragmentManager
+            .getLazySingleton(TAG, QuickAndroidRxPermissionFragment::class.java)
     }
 
     constructor(fragment: Fragment) {
-        mRxPermissionFragment = getLazySingleton(fragment.childFragmentManager)
-    }
-
-    private fun getLazySingleton(supportFragmentManager: FragmentManager): Lazy<QuickAndroidRxPermissionFragment> {
-        return object : Lazy<QuickAndroidRxPermissionFragment> {
-            private var rxPermissionFragment: QuickAndroidRxPermissionFragment? = null
-
-            private fun getFragment(): QuickAndroidRxPermissionFragment {
-                if (rxPermissionFragment == null) {
-                    rxPermissionFragment = getRxPermissionsFragment(supportFragmentManager)
-                }
-                return rxPermissionFragment!!
-            }
-
-            override val value: QuickAndroidRxPermissionFragment
-                get() = getFragment()
-
-            override fun isInitialized(): Boolean {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
-
-        }
-    }
-
-    private fun getRxPermissionsFragment(fragmentManager: FragmentManager): QuickAndroidRxPermissionFragment {
-        var rxPermissionFragment = findRxPermissionsFragment(fragmentManager)
-        if (rxPermissionFragment == null) {
-            rxPermissionFragment = QuickAndroidRxPermissionFragment()
-            fragmentManager
-                .beginTransaction()
-                .add(rxPermissionFragment, TAG)
-                .commitNow()
-        }
-        return rxPermissionFragment
-    }
-
-    private fun findRxPermissionsFragment(fragmentManager: FragmentManager): QuickAndroidRxPermissionFragment? {
-        return fragmentManager.findFragmentByTag(TAG) as? QuickAndroidRxPermissionFragment
+        mRxPermissionFragment = fragment.childFragmentManager
+            .getLazySingleton(TAG, QuickAndroidRxPermissionFragment::class.java)
     }
 
 
     fun request(permissions: Array<String>, @StringRes tip: Int): Observable<QuickAndroidRxPermissionItem> {
         requestCode++
         return mRxPermissionFragment.value.requestPermissions(permissions, tip, requestCode)
+            .compose(RxSchedulersHelper.io_main())
     }
 
     fun request(permissions: Array<String>, tip: String = "请求权限"): Observable<QuickAndroidRxPermissionItem> {
         requestCode++
         return mRxPermissionFragment.value.requestPermissions(permissions, tip, requestCode)
+            .compose(RxSchedulersHelper.io_main())
     }
 }
 
 //////////////////////////////////////////////////////////
 ////////// QuickAndroid 扩展
 //////////////////////////////////////////////////////////
-
 
 
 //////////////////////////////////////////////////////////

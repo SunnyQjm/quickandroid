@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import cn.qjm253.quick_android_base.params.IntentParam
 import java.util.*
 
@@ -54,12 +55,12 @@ fun Activity.jumpForResult(cls: Class<*>, requestCode: Int = 0, intentParam: Int
     startActivityForResult(intent, requestCode)
 }
 
-//
-//fun Fragment.jumpForResult(cls: Class<*>, requestCode: Int, intentParam: IntentParam? = null) {
-//    val intent = Intent(activity, cls)
-//    intentParam?.applyParam(intent)
-//    startActivityForResult(intent, requestCode)
-//}
+
+fun Fragment.jumpForResult(cls: Class<*>, requestCode: Int, intentParam: IntentParam? = null) {
+    val intent = Intent(activity, cls)
+    intentParam?.applyParam(intent)
+    startActivityForResult(intent, requestCode)
+}
 
 /////////////////////////////////////////////////////////
 ///////// 下面是软键盘相关的扩展

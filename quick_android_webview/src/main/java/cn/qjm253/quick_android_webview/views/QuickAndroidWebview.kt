@@ -10,7 +10,9 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.net.Uri
 import android.util.AttributeSet
+import androidx.fragment.app.FragmentActivity
 import cn.qjm253.quick_android_image_picker.MyImagePicker
+import cn.qjm253.quick_android_rx_permission.QuickAndroidRxPermission
 import com.qingmei2.rximagepicker.core.RxImagePicker
 import com.qingmei2.rximagepicker_extension.MimeType
 import com.qingmei2.rximagepicker_extension_wechat.WechatConfigrationBuilder
@@ -19,12 +21,19 @@ import com.tencent.smtt.export.external.interfaces.WebResourceRequest
 import com.tencent.smtt.sdk.*
 import org.jetbrains.anko.selector
 
-class XbWebView(context: Context, attributeSet: AttributeSet) :
+/**
+ * 腾讯X5浏览器内核封装
+ * 1. 支持图片选择
+ */
+class QuickAndroidWebview(context: FragmentActivity, attributeSet: AttributeSet) :
     WebView(context, attributeSet) {
 
     var onWebViewLoadListener: OnWebViewLoadListener? = null
 
     init {
+
+        val rxPermission = QuickAndroidRxPermission(context)
+
         this.webViewClient = object : WebViewClient() {
 
             /**
@@ -53,28 +62,30 @@ class XbWebView(context: Context, attributeSet: AttributeSet) :
                 onWebViewLoadListener?.onProgress(p1)
             }
 
+            @SuppressLint("CheckResult")
             override fun openFileChooser(p0: ValueCallback<Uri>?, p1: String?, p2: String?) {
-//                rxPermissions
-//                    .request(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
-//                    .subscribe { granted ->
-//                        if (granted) {
-//                            openImageChooserActivity(context, p0)
-//                        }
-//                    }
+                rxPermission
+                    .request(arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE))
+                    .subscribe {
+                        if(it.granted) {
+                            openImageChooserActivity(context, p0)
+                        }
+                    }
             }
 
+            @SuppressLint("CheckResult")
             override fun onShowFileChooser(
                 p0: WebView?,
                 p1: ValueCallback<Array<Uri>>?,
                 p2: FileChooserParams?
             ): Boolean {
-//                rxPermissions
-//                    .request(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
-//                    .subscribe { granted ->
-//                        if (granted) {
-//                            openImageChooserActivity(context, null, p1)
-//                        }
-//                    }
+                rxPermission
+                    .request(arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE))
+                    .subscribe {
+                        if(it.granted) {
+                            openImageChooserActivity(context, null, p1)
+                        }
+                    }
                 return true
             }
         }

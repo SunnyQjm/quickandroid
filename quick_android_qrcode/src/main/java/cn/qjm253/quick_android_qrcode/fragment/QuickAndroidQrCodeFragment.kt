@@ -44,7 +44,7 @@ class QuickAndroidQrCodeFragment : BaseQuickAndroidFragment() {
             }
 
             override fun onCameraAmbientBrightnessChanged(isDark: Boolean) {
-                "onCameraAmbientBrightnessChanged => isDark: $isDark".i()
+//                "onCameraAmbientBrightnessChanged => isDark: $isDark".i()
             }
 
             override fun onScanQRCodeOpenCameraError() {

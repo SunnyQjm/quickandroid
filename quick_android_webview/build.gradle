@@ -39,14 +39,16 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation "androidx.appcompat:appcompat:${appcompact_version}"
+    testImplementation "junit:junit:${junit_version}"
+    androidTestImplementation "androidx.test:runner:${test_runner_version}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${espresso_core_version}"
 
     implementation project(path: ':quick_android_base')
+    implementation project(path: ':quick_android_rx_permission')
     implementation project(path: ':quick_android_image_picker')
-    implementation files('libs/tbs_sdk.jar')
+    implementation project(path: ':quick_android_qrcode')
+    api files('libs/tbs_sdk.jar')
     implementation "org.jetbrains.anko:anko-commons:${anko_version}"
 
 }
