@@ -7,6 +7,7 @@ import cn.qjm253.quick_android_base.extensions.e
 import cn.qjm253.quick_android_base.extensions.i
 import cn.qjm253.quick_android_mvp.model.inernet.rx.QuickAndroidMVPResultDeal
 import com.orhanobut.logger.Logger
+import com.tencent.smtt.sdk.QbSdk
 import io.reactivex.Observable
 
 class App : Application() {
@@ -53,5 +54,14 @@ class App : Application() {
                 }
 
             })
+        QbSdk.initX5Environment(this, object : QbSdk.PreInitCallback {
+            override fun onViewInitFinished(p0: Boolean) {
+
+            }
+
+            override fun onCoreInitFinished() {
+            }
+
+        })
     }
 }

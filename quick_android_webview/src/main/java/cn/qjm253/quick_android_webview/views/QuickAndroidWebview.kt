@@ -25,14 +25,14 @@ import org.jetbrains.anko.selector
  * 腾讯X5浏览器内核封装
  * 1. 支持图片选择
  */
-class QuickAndroidWebview(context: FragmentActivity, attributeSet: AttributeSet) :
+class QuickAndroidWebview(context: Context, attributeSet: AttributeSet) :
     WebView(context, attributeSet) {
 
     var onWebViewLoadListener: OnWebViewLoadListener? = null
 
     init {
 
-        val rxPermission = QuickAndroidRxPermission(context)
+        val rxPermission = QuickAndroidRxPermission(context as FragmentActivity)
 
         this.webViewClient = object : WebViewClient() {
 
@@ -67,7 +67,7 @@ class QuickAndroidWebview(context: FragmentActivity, attributeSet: AttributeSet)
                 rxPermission
                     .request(arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE))
                     .subscribe {
-                        if(it.granted) {
+                        if (it.granted) {
                             openImageChooserActivity(context, p0)
                         }
                     }
@@ -82,7 +82,7 @@ class QuickAndroidWebview(context: FragmentActivity, attributeSet: AttributeSet)
                 rxPermission
                     .request(arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE))
                     .subscribe {
-                        if(it.granted) {
+                        if (it.granted) {
                             openImageChooserActivity(context, null, p1)
                         }
                     }
@@ -131,7 +131,7 @@ class QuickAndroidWebview(context: FragmentActivity, attributeSet: AttributeSet)
 
                         }, {
                             // onComplete
-                            if(result.size <= 0) {
+                            if (result.size <= 0) {
                                 valueCallback2?.onReceiveValue(null)
                             } else {
                                 valueCallback2?.onReceiveValue(result.toTypedArray())

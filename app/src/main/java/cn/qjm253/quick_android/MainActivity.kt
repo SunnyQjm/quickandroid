@@ -3,6 +3,7 @@ package cn.qjm253.quick_android
 import android.Manifest
 import android.os.Bundle
 import cn.qjm253.quick_android.mvp_demo.MVPDemoActivity
+import cn.qjm253.quick_android.webview_demo.WebViewDemo
 import cn.qjm253.quick_android_base.base.activity.BaseQuickAndroidActivity
 import cn.qjm253.quick_android_base.extensions.*
 import cn.qjm253.quick_android_base.util.ContentUriUtil
@@ -79,6 +80,10 @@ class MainActivity : BaseQuickAndroidActivity() {
                     }
                 }
 //            easyRequestPermissions(permissions, R.string.image_picker_require_rw_permission, 1)
+        }
+
+        btnWebviewDemo.setOnClickListener {
+            jumpTo(WebViewDemo::class.java)
         }
     }
 
