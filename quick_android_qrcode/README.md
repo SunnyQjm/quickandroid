@@ -4,7 +4,7 @@
 
 
 
-> ### 使用
+- ### 使用
 
 ```kotlin
 QuickAndroidQrCode
@@ -28,8 +28,8 @@ QuickAndroid
 
 
 
-> ### 模块说明
+- ### 模块说明
 
-- 本模块提供了一个简单的[QuickAndroidQrCodeActivity](https://github.com/SunnyQjm/quickandroid/blob/master/quick_android_qrcode/src/main/java/cn/qjm253/quick_android_qrcode/activity/QuickAndroidQrCodeActivity.kt)实现扫码界面，可以直接使用
-- 如果希望自定义扫码界面，也可以参考[QuickAndroidQrCodeActivity](https://github.com/SunnyQjm/quickandroid/blob/master/quick_android_qrcode/src/main/java/cn/qjm253/quick_android_qrcode/activity/QuickAndroidQrCodeActivity.kt)复用本模块提供的[QuickAndroidQrCodeFragment](https://github.com/SunnyQjm/quickandroid/blob/master/quick_android_qrcode/src/main/java/cn/qjm253/quick_android_qrcode/fragment/QuickAndroidQrCodeFragment.kt)来实现自定义的界面
+  - 本模块提供了一个简单的[QuickAndroidQrCodeActivity](https://github.com/SunnyQjm/quickandroid/blob/master/quick_android_qrcode/src/main/java/cn/qjm253/quick_android_qrcode/activity/QuickAndroidQrCodeActivity.kt)实现扫码界面，可以直接使用
+  - 如果希望自定义扫码界面，也可以参考[QuickAndroidQrCodeActivity](https://github.com/SunnyQjm/quickandroid/blob/master/quick_android_qrcode/src/main/java/cn/qjm253/quick_android_qrcode/activity/QuickAndroidQrCodeActivity.kt)复用本模块提供的[QuickAndroidQrCodeFragment](https://github.com/SunnyQjm/quickandroid/blob/master/quick_android_qrcode/src/main/java/cn/qjm253/quick_android_qrcode/fragment/QuickAndroidQrCodeFragment.kt)来实现自定义的界面
 
