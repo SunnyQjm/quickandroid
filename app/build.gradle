@@ -41,6 +41,12 @@ dependencies {
 
     implementation 'com.android.support:multidex:1.0.3'
 
+//    implementation "com.github.SunnyQjm.quickandroid:quick_android_base:${quick_android_version}"
+//    implementation "com.github.SunnyQjm.quickandroid:quick_android_mvp:${quick_android_version}"
+//    implementation "com.github.SunnyQjm.quickandroid:quick_android_qrcode:${quick_android_version}"
+//    implementation "com.github.SunnyQjm.quickandroid:quick_android_image_picker:${quick_android_version}"
+//    implementation "com.github.SunnyQjm.quickandroid:quick_android_rx_permission:${quick_android_version}"
+
     implementation project(path: ':quick_android_base')
     implementation project(path: ':quick_android_mvp')
     implementation project(path: ':quick_android_qrcode')

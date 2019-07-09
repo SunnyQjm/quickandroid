@@ -12,6 +12,7 @@ import com.orhanobut.logger.Logger
  */
 object QuickAndroid {
     var APP_NAME = "QuickAndroid"
+    var enableParallaxBack = false
 
     fun appName(appName: String = "quick_android"): QuickAndroid {
         APP_NAME = appName
@@ -28,11 +29,13 @@ object QuickAndroid {
      * 如需修改侧滑触发的模式和位置，参看BaseQuickAndroidActivity
      * @see cn.qjm253.quick_android_mvp.base.activity.BaseQuickAndroidActivity
      */
-    fun enableParallaxBack(context: Application) {
+    fun enableParallaxBack(context: Application): QuickAndroid {
         /**
          * 初始化侧滑操作
          * 需要在Application当中初始化
          */
         context.registerActivityLifecycleCallbacks(ParallaxHelper.getInstance())
+        enableParallaxBack = true
+        return this
     }
 }

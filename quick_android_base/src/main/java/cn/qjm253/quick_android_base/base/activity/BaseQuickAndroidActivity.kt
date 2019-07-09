@@ -1,11 +1,10 @@
 package cn.qjm253.quick_android_base.base.activity
 
-import android.Manifest
 import android.net.Uri
 import android.os.Bundle
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
-import cn.qjm253.quick_android_base.R
+import cn.qjm253.quick_android_base.QuickAndroid
 import cn.qjm253.quick_android_base.base.fragment.BaseQuickAndroidFragment
 import com.github.anzewei.parallaxbacklayout.ParallaxBack
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper
@@ -40,39 +39,43 @@ abstract class BaseQuickAndroidActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val layout = ParallaxHelper.getParallaxBackLayout(this, true)
+        if (QuickAndroid.enableParallaxBack) {      // 手动开启侧滑才执行侧滑相关代码
+            ParallaxHelper.getParallaxBackLayout(this, true)?.let { layout ->
+                // 设置侧滑的响应模式
+                if (isParallaxBackLayoutFullScreen()) {
+                    layout.setEdgeMode(ParallaxBackLayout.EDGE_MODE_FULL)
+                } else {
+                    layout.setEdgeMode(ParallaxBackLayout.EDGE_MODE_DEFAULT)
+                }
 
-        // 设置侧滑的响应模式
-        if(isParallaxBackLayoutFullScreen()) {
-            layout.setEdgeMode(ParallaxBackLayout.EDGE_MODE_FULL)
-        } else {
-            layout.setEdgeMode(ParallaxBackLayout.EDGE_MODE_DEFAULT)
+                // 设置是否允许触发侧滑返回
+                if (isNeedScrollBack()) {
+                    layout.setEnableGesture(true)
+                } else {
+                    layout.setEnableGesture(false)
+                }
+            }
         }
-
-        // 设置是否允许触发侧滑返回
-        if(isNeedScrollBack()) {
-            layout.setEnableGesture(true)
-        } else {
-            layout.setEnableGesture(false)
-        }
-
-//        layout.setEdgeMode()
     }
 
     /**
      * 禁止侧滑返回
      */
     fun disableParallaxBack() {
-        ParallaxHelper.getParallaxBackLayout(this)
-            .setEnableGesture(false)
+        if(QuickAndroid.enableParallaxBack) {
+            ParallaxHelper.getParallaxBackLayout(this)
+                ?.setEnableGesture(false)
+        }
     }
 
     /**
      * 开启侧滑返回
      */
     fun enableParallaxBack() {
-        ParallaxHelper.getParallaxBackLayout(this)
-            .setEnableGesture(true)
+        if(QuickAndroid.enableParallaxBack){
+            ParallaxHelper.getParallaxBackLayout(this)
+                ?.setEnableGesture(true)
+        }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -95,7 +98,7 @@ abstract class BaseQuickAndroidActivity : AppCompatActivity(),
 
 
     open fun easyRequestPermissions(permissions: Array<String>, @StringRes tip: Int, requestCode: Int) {
-        if(EasyPermissions.hasPermissions(this, *permissions)) {
+        if (EasyPermissions.hasPermissions(this, *permissions)) {
             onPermissionsGranted(requestCode, permissions.toMutableList())
         } else {
             EasyPermissions.requestPermissions(this, getString(tip), requestCode, *permissions)

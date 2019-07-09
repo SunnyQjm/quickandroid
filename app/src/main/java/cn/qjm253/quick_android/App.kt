@@ -13,7 +13,8 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         QuickAndroid.appName("quick_android_demo")
-            .init(this)
+            .init()
+            .enableParallaxBack(this)
             .initMVP(this, baseUrl = "https://www.tianqiapi.com/")
             .addOnAPIBeforeNextListener {
                 Logger.i("before API next")
