@@ -29,3 +29,5 @@
 -dontwarn com.google.android.material.**
 -dontnote com.google.android.material.**
 -dontwarn androidx.**
+
+-keep class cn.qjm253.quick_android.mvp_demo.**{*;}
