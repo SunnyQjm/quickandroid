@@ -13,6 +13,7 @@ import cn.qjm253.quick_android_qrcode.scanCode
 import cn.qjm253.quick_android_rx_permission.QuickAndroidRxPermission
 import com.qingmei2.rximagepicker_extension.MimeType
 import com.qingmei2.rximagepicker_extension_wechat.WechatConfigrationBuilder
+import com.qingmei2.rximagepicker_extension_zhihu.ZhihuConfigurationBuilder
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseQuickAndroidActivity() {

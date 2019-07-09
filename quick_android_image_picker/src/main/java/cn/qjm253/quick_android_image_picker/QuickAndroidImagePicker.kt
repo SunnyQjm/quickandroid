@@ -1,9 +1,11 @@
 package cn.qjm253.quick_android_image_picker
 
 import android.content.Context
+import android.net.Uri
 import cn.qjm253.quick_android_base.QuickAndroid
 import cn.qjm253.quick_android_base.extensions.jumpTo
 import cn.qjm253.quick_android_base.params.IntentParam
+import cn.qjm253.quick_android_base.util.ContentUriUtil
 import cn.qjm253.quick_android_image_picker.activity.QuickAndroidClipImageActivity
 import com.qingmei2.rximagepicker.core.RxImagePicker
 import com.qingmei2.rximagepicker.entity.Result
@@ -64,13 +66,32 @@ object QuickAndroidImagePicker {
 
     /**
      * 跳转到裁剪页面裁剪图片
+     * @param context
+     * @param path          文件的绝对路径
+     * @param multiple      裁剪后文件的压缩强度
+     *        0.2 -> 50 ~ 100 KB
+     *        0.3 -> 100 ~ 200 KB
      */
-    fun startClipImage(context: Context, path: String, multiple: Float = 0.3f) {
+    fun startClipImage(context: Context, path: String, multiple: Float = 0.3f): QuickAndroidImagePicker {
         context.jumpTo(
             QuickAndroidClipImageActivity::class.java, IntentParam()
                 .add(QuickAndroidClipImageActivity.QUICK_ANDROID_CLIP_IMAGE_IMAGE_PATH, path)
                 .add(QuickAndroidClipImageActivity.QUICK_ANDROID_CLIP_IMAGE_MULTIPLE, multiple)
         )
+        return this
+    }
+
+    /**
+     * 跳转到裁剪页面裁剪图片
+     * @param context
+     * @param uri           Uri类型
+     * @param multiple      裁剪后文件的压缩强度
+     *        0.2 -> 50 ~ 100 KB
+     *        0.3 -> 100 ~ 200 KB
+     */
+    fun startClipImage(context: Context, uri: Uri, multiple: Float = 0.3f): QuickAndroidImagePicker {
+        startClipImage(context, ContentUriUtil.getPath(context, uri), multiple)
+        return this
     }
 
 }
@@ -106,8 +127,12 @@ fun QuickAndroid.openCamera(context: Context): Observable<Result> {
     return QuickAndroidImagePicker.openCamera(context)
 }
 
-fun QuickAndroid.startClipImage(context: Context, path: String, multiple: Float = 0.3f) {
+fun QuickAndroid.startClipImage(context: Context, path: String, multiple: Float = 0.3f): QuickAndroidImagePicker {
     return QuickAndroidImagePicker.startClipImage(context, path, multiple)
+}
+
+fun QuickAndroid.startClipImage(context: Context, uri: Uri, multiple: Float = 0.3f): QuickAndroidImagePicker {
+    return QuickAndroidImagePicker.startClipImage(context, uri, multiple)
 }
 
 
@@ -140,6 +165,10 @@ fun Context.openCamera(): Observable<Result> {
     return QuickAndroidImagePicker.openCamera(this)
 }
 
-fun Context.startClipImage(path: String, multiple: Float = 0.3f) {
+fun Context.startClipImage(path: String, multiple: Float = 0.3f): QuickAndroidImagePicker {
     return QuickAndroidImagePicker.startClipImage(this, path, multiple)
+}
+
+fun Context.startClipImage(uri: Uri, multiple: Float = 0.3f): QuickAndroidImagePicker {
+    return QuickAndroidImagePicker.startClipImage(this, uri, multiple)
 }
