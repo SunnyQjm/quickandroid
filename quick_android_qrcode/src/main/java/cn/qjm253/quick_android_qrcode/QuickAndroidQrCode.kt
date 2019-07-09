@@ -1,12 +1,9 @@
 package cn.qjm253.quick_android_qrcode
 
-import android.app.Activity
-import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import cn.qjm253.quick_android_base.QuickAndroid
 import cn.qjm253.quick_android_base.extensions.getLazySingleton
-import cn.qjm253.quick_android_base.extensions.jumpTo
 import cn.qjm253.quick_android_base.util.RxSchedulersHelper
 import cn.qjm253.quick_android_qrcode.activity.QuickAndroidQrCodeActivity
 import cn.qjm253.quick_android_qrcode.fragment.QuickAndroidQrCodeTransFragment
@@ -44,6 +41,9 @@ class QuickAndroidQrCode {
             .getLazySingleton(TAG, QuickAndroidQrCodeTransFragment::class.java)
     }
 
+    /**
+     * 跳转到扫码界面，并返回一个Observable对象用于接收扫码结果
+     */
     fun scanQrCode(): Observable<QrCodeResult> {
         return mQrCodeTransFragment.value.scanCode(QuickAndroidQrCodeActivity::class.java)
             .compose(RxSchedulersHelper.io_main())

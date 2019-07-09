@@ -39,4 +39,4 @@ implementation 'com.github.SunnyQjm.quickandroid:quick_android_webview:${last_ve
 
 > ## 一些说明
 
-- 本库仅支持`androidx`，不能与使用`support`库的项目一起使用，如果需要与support库一起使用，请自行fork进行迁移
+- 本库仅支持`androidx`，不能与使用`support`库的项目一起使用，如果需要与`support`库一起使用，请自行fork进行迁移
