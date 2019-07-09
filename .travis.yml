@@ -40,3 +40,4 @@ deploy:
   skip_cleanup: true
   on:
     repo: SunnyQjm/quickandroid
+    tags: true
