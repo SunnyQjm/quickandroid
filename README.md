@@ -86,8 +86,6 @@
         }
     ```
 
-- 
-
 - ### `quick_android_base`支持的其它特性
 
   - 一些有用的工具类 [utils](https://github.com/SunnyQjm/quickandroid/tree/master/quick_android_base/src/main/java/cn/qjm253/quick_android_base/util)
