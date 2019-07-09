@@ -3,6 +3,37 @@
 
 [![](https://jitpack.io/v/SunnyQjm/quickandroid.svg)](https://jitpack.io/#SunnyQjm/quickandroid)
 
+> ## quick_android_base 模块
+>
+> 本模块提供了一些常用的工具库，一些常用的Kotlin扩展，以及一些基本功能的封装
+
+- ### 初始化
+
+  ```kotlin
+  // 在Application中初始化
+  QuickAndroid.init()
+  	// 执行下面一行可以开启应用Activity的侧滑返回支持
+  	.enableParallaxBack(context)		
+  ```
+
+  
+
+- ### 侧滑返回支持说明
+
+  1. 所有需要支持侧滑返回的`Activity`都要继承 [BaseQuickAndroidActivity](<https://github.com/SunnyQjm/quickandroid/blob/master/quick_android_base/src/main/java/cn/qjm253/quick_android_base/base/activity/BaseQuickAndroidActivity.kt>) ；
+
+  2. 如果继承自[BaseQuickAndroidActivity](<https://github.com/SunnyQjm/quickandroid/blob/master/quick_android_base/src/main/java/cn/qjm253/quick_android_base/base/activity/BaseQuickAndroidActivity.kt>) 的`Activity`需要按业务需求开启和关闭业务需求，可以使用下面两个函数（下面两个函数定义在[BaseQuickAndroidActivity](<https://github.com/SunnyQjm/quickandroid/blob/master/quick_android_base/src/main/java/cn/qjm253/quick_android_base/base/activity/BaseQuickAndroidActivity.kt>) 当中，所有集成自该类的Activity均可调用）：
+
+     ```kotlin
+     // 禁止侧滑返回
+     disableParallaxBack()
+     
+     // 开启侧滑返回
+     enableParallaxBack()
+     ```
+
+  3. 本侧滑返回使用的是[ParallaxBackLayout](<https://github.com/anzewei/ParallaxBackLayout)，如果需要自定义侧滑模式，以及触发侧滑返回的位置等等，可以参考该库提供的配置。
+
 
 > ## quick_android_mvp模块
 > 本模块提供了一个快速实现MVP架构的框架，并且封装了网络请求（Retrofit + RxJava）
@@ -17,7 +48,7 @@
         ```groovy
         // 所有的模块都依赖于 quick_android_base 
         implementation 'com.github.SunnyQjm.quickandroid:quick_android_base:${last_version}'
-  
+      
         // 引入quick_android_mvp模块，来使用网络请求和MVP架构
         implementation 'com.github.SunnyQjm.quickandroid:quick_android_mvp:${last_version}'
         ```
@@ -36,7 +67,7 @@
               context, baseUrl, enablePersistentCookieJar
           )
           
-  
+      
         // 当然，如果使用Kotlin开发也可以使用下面的统一扩展接口，参数说明同上
         QuickAndroid.initMVP(
             context, baseUrl, enablePersistentCookieJar
@@ -68,11 +99,10 @@
               }, {                // onComplete
         
               })
-  
+        
         ```
-     
+
      轻松两步便可实现网络请求
-     
 
 - ### 如何对每一个网络请求添加监听？
     下面的所有接口都有对应 `QuickAndroid` 的扩展，如果使用`kotlin`开发的话，也可以使用`QuickAndroid.xxx`的方式来调用。
@@ -90,7 +120,7 @@
         
         // 可以通过下面的方法清空所有对onComplete事件的监听器
         QuickAndroidMVP.clearOnAPICompleteListeners()
-        ``` 
+        ```
         
     - 添加一个可以监听所有网络请求的onNext事件的监听器
         ```kotlin
@@ -104,7 +134,7 @@
         
         
         QuickAndroidMVP.clearOnAPIBeforeNextListeners()
-        ``` 
+        ```
         
     - 添加一个可以监听所有网络请求的onError事件的监听器
         ```kotlin
@@ -119,4 +149,6 @@
         
         // 可以通过下面的方法清空所有对onError事件的监听器
         QuickAndroidMVP.clearOnAPIErrorListeners()
-        ``` 
+        ```
+    
+- ### 如何对网络请求的结果进行统一的处理
