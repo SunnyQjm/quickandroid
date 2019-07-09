@@ -3,6 +3,7 @@ package cn.qjm253.quick_android_rx_permission
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import cn.qjm253.quick_android_base.QuickAndroid
 import cn.qjm253.quick_android_base.extensions.getLazySingleton
 import cn.qjm253.quick_android_base.util.RxSchedulersHelper
 import io.reactivex.Observable
@@ -55,8 +56,10 @@ class QuickAndroidRxPermission {
 //////////////////////////////////////////////////////////
 ////////// QuickAndroid 扩展
 //////////////////////////////////////////////////////////
+fun QuickAndroid.createRxPermission(activity: FragmentActivity): QuickAndroidRxPermission {
+    return QuickAndroidRxPermission.create(activity)
+}
 
-
-//////////////////////////////////////////////////////////
-////////// Context 扩展
-//////////////////////////////////////////////////////////
+fun QuickAndroid.createRxPermission(fragment: Fragment): QuickAndroidRxPermission {
+    return QuickAndroidRxPermission.create(fragment)
+}

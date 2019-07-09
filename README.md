@@ -21,7 +21,7 @@ implementation 'com.github.SunnyQjm.quickandroid:quick_android_qrcode:${last_ver
 // 引入quick_android_rx_permission模块，来接入链式调用动态请求权限的功能（可选）
 implementation 'com.github.SunnyQjm.quickandroid:quick_android_rx_permission:${last_version}'
 
-// 引入quick_android_webview模块，来接入H5容器能力
+// 引入quick_android_webview模块，来接入H5容器能力（可选）
 implementation 'com.github.SunnyQjm.quickandroid:quick_android_webview:${last_version}'
 ```
 
@@ -36,3 +36,7 @@ implementation 'com.github.SunnyQjm.quickandroid:quick_android_webview:${last_ve
 - [quick_android_qrcode模块文档](https://github.com/SunnyQjm/quickandroid/tree/master/quick_android_qrcode)
 - [quick_android_rx_permission模块文档](https://github.com/SunnyQjm/quickandroid/tree/master/quick_android_rx_permission)
 - [quick_android_webview模块文档](https://github.com/SunnyQjm/quickandroid/tree/master/quick_android_webview)
+
+> ## 一些说明
+
+- 本库仅支持`androidx`，不能与使用`support`库的项目一起使用，如果需要与support库一起使用，请自行fork进行迁移
