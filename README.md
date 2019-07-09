@@ -1,7 +1,7 @@
 # quickandroid
 > QuickAndroid一个Android快速开发的模板库，支持开箱即用的扫码、图片选择、MVP架构模式、全功能的下拉刷新和上拉加载更多（支持自定义刷新头）等等多项功能，可以根据需要引入不同的库实现不同的功能
 
-[![](https://jitpack.io/v/SunnyQjm/quickandroid.svg)](https://jitpack.io/#SunnyQjm/quickandroid)
+[![](https://jitpack.io/v/SunnyQjm/quickandroid.svg)](https://jitpack.io/#SunnyQjm/quickandroid)[![Build Status](https://travis-ci.org/SunnyQjm/quickandroid.svg?branch=master)](https://travis-ci.org/SunnyQjm/quickandroid)
 
 > ## 依赖使用
 

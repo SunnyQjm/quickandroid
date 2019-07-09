@@ -11,16 +11,6 @@
 
 - ### 使用
 
-  - 首先引入依赖
-
-    ```groovy
-    // 所有的模块都依赖于 quick_android_base 
-    implementation 'com.github.SunnyQjm.quickandroid:quick_android_base:${last_version}'
-      
-    // 引入quick_android_mvp模块，来使用网络请求和MVP架构
-    implementation 'com.github.SunnyQjm.quickandroid:quick_android_mvp:${last_version}'
-    ```
-
   - 初始化
 
     ```kotlin
@@ -80,7 +70,7 @@
 
 - ### 如何对每一个网络请求添加监听？
 
-  下面的所有接口都有对应 `QuickAndroid` 的扩展，如果使用`kotlin`开发的话，也可以使用`QuickAndroid.xxx`的方式来调用。
+  下面的所有接口都有对应 `QuickAndroid` 的扩展，如果使用`kotlin`开发的话，也可以使用`QuickAndroid.xxx`的方式来调用。**所有的网络请求，只有使用`qaSubscribe`扩展进行订阅的才会调用下面的回调**
 
   - 添加一个可以监听所有网络请求的onComplete事件的监听器
 
@@ -130,3 +120,59 @@
     ```
 
 - ### 如何对网络请求的结果进行统一的处理
+
+  - 使用要求
+
+    - 所有的网络请求都必须使用`qaHandleResult()`扩展
+
+      ```kotlin
+      Observable.just(BaseQuickAndroidResponseBody(-2))
+                  .qaHandleResult()
+                  .qaSubscribe(mView, {
+      
+                  })
+      ```
+
+    - 网络请求的Model数据类需要继承自[BaseQuickAndroidResponseBody](https://github.com/SunnyQjm/quickandroid/blob/master/quick_android_mvp/src/main/java/cn/qjm253/quick_android_mvp/model/response/BaseQuickAndroidResponseBody.kt)，里面包含一个`code`属性标识网络请求的状态码
+
+  - 使用
+
+    网络请求成功的情况下，通常返回的结果中会包含状态码（状态码一般又分为请求正常、请求错误等等），如果需要对网络请求的结果进行统一处理，便可以使用如下的方式
+
+    ```kotlin
+    QuickAndroidMVP
+    	.registerAPIResultDeal(object : QuickAndroidMVPResultDeal(
+                    // 包含所有网络请求失败的code
+            		arrayOf(
+                        -1 to "网络请求失败"
+                    ),							
+                    
+            		// 包含所有请求成功的code
+            		arrayOf(
+                        0 to "网络请求成功"
+                    ),							
+                    
+            		// token 失效，需要重新获取token之后重新发起请求的code
+            		arrayOf(
+                        -2 to "Token失效"
+                    )							
+                ) {
+                    override fun dealRetry(t: Throwable): Observable<Int> {
+                        t.e("dealRetry")
+                        return Observable.error(t)
+                    }
+    
+                    override fun normalDeal(code: Int, description: String) {
+                        "normalDeal => code: $code, description: $description".i()
+                    }
+    
+                    override fun errorDeal(code: Int, description: String) {
+                        "errorDeal => code: $code, description: $description".e()
+                    }
+    
+                })
+    ```
+
+    
+
+  
