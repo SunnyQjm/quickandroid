@@ -1,0 +1,41 @@
+language: android
+sudo: false
+android:
+  components:
+  - tools
+  - platform-tools
+  - build-tools-28.0.0
+  - build-tools-28.0.3
+  - android-28
+  - extra-google-m2repository
+  - extra-android-m2repository
+  - addon-google_apis-google-28
+before_cache:
+- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+  - "$HOME/.android/build-cache"
+  - 
+before_install:
+- openssl aes-256-cbc -K $encrypted_d1e2e8dfec53_key -iv $encrypted_d1e2e8dfec53_iv
+  -in release.jks.enc -out release.jks -d
+jdk:
+- oraclejdk8
+before_script:
+- chmod +x gradlew
+script:
+- "./gradlew assembleRelease"
+- 
+before_deploy:
+- mv app/build/outputs/apk/release/app-release.apk app/build/outputs/apk/release/quick-android-demo.apk
+-
+deploy:
+  provider: releases
+  api_key:
+    secure: PxwlLaMfCxH/hC8U8IEola8VDOBuTEpbHT+BK8UeIgZzol28YlrzjgRBHqdKFZNheczP1bBmjkVIwhS1aFRxck1mxX0AoRC/O8oGVpQX7qxXH/YR+cQcV2DLIBMwTDz1y0Tlj1Yq1w7+tH9xGNX/7eiv2jaBM3uXxlOvrEHK8zOW24R9lXgLJFKkP4vGIjrc5PxjV1MRdZ9jrshC3OAVj8O8ugB679YkoxHh/hCPbfhvPGXw6giRF4YU27fZgNPfDTiqf9xzmadsiUmNxwF6/MMLyuJWhI0nPesLLjzFW4GAYXALnt0r290XOLqTqb6UA7Yeki1ygHg31lLkAwSk4rAfAncHm3tEvx5Z3wgjwIQ3QLU8X9/b52Y/xspB4G2iq4cBgeBOeXoNy0Uj0tWYfKkGTLIp9W5q2HNoy0Mr+EHesylZPEfgUpgJs8bE9OHHt43Ba05r+x4FXovB68n2SjUHY0ZXwz2Dz7UzU6ye/rpXuxt7yXyJpYPXAyHdiv6m7gffo1LeDYWDpKN+2eUaRf7o2F9LxYSAz1oA6gCzbF0VdbA22PTgOV1pIa7WwZ4T+tzBWHD+jX3VzAmwNpKGDpX53hMxSAujFdGe8zk7DOkvdy8Cix+i5iBN1RbjgTfhWs6daan8xfaduBuGCfswnsSGIK9PTdpADLfqsXqfEEc=
+  file: app/release/quick-android-demo.apk
+  on:
+    repo: SunnyQjm/quickandroid
