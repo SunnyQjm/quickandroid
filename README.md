@@ -6,25 +6,41 @@
 
 > ## 依赖使用
 
-```groovy
-// 所有的模块都依赖于 quick_android_base （必选）
-implementation 'com.github.SunnyQjm.quickandroid:quick_android_base:${last_version}'
-  
-// 引入quick_android_mvp模块，来使用网络请求和MVP架构（可选）
-implementation 'com.github.SunnyQjm.quickandroid:quick_android_mvp:${last_version}'
 
-// 引入quick_android_image_picker模块，来接入图片选择，图片裁剪等功能（可选）
-implementation 'com.github.SunnyQjm.quickandroid:quick_android_image_picker:${last_version}'
 
-// 引入quick_android_qrcode模块，来接入扫码功能（可选）
-implementation 'com.github.SunnyQjm.quickandroid:quick_android_qrcode:${last_version}'
+- Step 1. Add the JitPack repository to your build file
+Add it in your root build.gradle at the end of repositories:
 
-// 引入quick_android_rx_permission模块，来接入链式调用动态请求权限的功能（可选）
-implementation 'com.github.SunnyQjm.quickandroid:quick_android_rx_permission:${last_version}'
+    ```groovy
+    allprojects {
+      repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+      }
+    }
+    ```
 
-// 引入quick_android_webview模块，来接入H5容器能力（可选）
-implementation 'com.github.SunnyQjm.quickandroid:quick_android_webview:${last_version}'
-```
+- Step 2. Add the dependency
+
+    ```groovy
+    // 所有的模块都依赖于 quick_android_base （必选）
+    implementation 'com.github.SunnyQjm.quickandroid:quick_android_base:${last_version}'
+
+    // 引入quick_android_mvp模块，来使用网络请求和MVP架构（可选）
+    implementation 'com.github.SunnyQjm.quickandroid:quick_android_mvp:${last_version}'
+
+    // 引入quick_android_image_picker模块，来接入图片选择，图片裁剪等功能（可选）
+    implementation 'com.github.SunnyQjm.quickandroid:quick_android_image_picker:${last_version}'
+
+    // 引入quick_android_qrcode模块，来接入扫码功能（可选）
+    implementation 'com.github.SunnyQjm.quickandroid:quick_android_qrcode:${last_version}'
+
+    // 引入quick_android_rx_permission模块，来接入链式调用动态请求权限的功能（可选）
+    implementation 'com.github.SunnyQjm.quickandroid:quick_android_rx_permission:${last_version}'
+
+    // 引入quick_android_webview模块，来接入H5容器能力（可选）
+    implementation 'com.github.SunnyQjm.quickandroid:quick_android_webview:${last_version}'
+    ```
 
 
 
