@@ -82,8 +82,7 @@ object SystemInfoHelper {
             getSdkInt(),
             getSystemVersion(),
             getStatusBarHeight(context),
-            getSystemLanguage(),
-            getSystemLanguageLists()
+            getSystemLanguage()
         )
     }
 }

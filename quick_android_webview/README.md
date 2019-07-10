@@ -103,16 +103,15 @@
 
     - 获取到的信息如下所示：
 
-      |       属性名       | 属性类型 |          属性说明          |
-      | :----------------: | :------: | :------------------------: |
-      |       brand        |  string  |          手机品牌          |
-      |       model        |  string  |          手机型号          |
-      |      hardware      |  string  |        手机硬件信息        |
-      |       sdkInt       |  number  |      Android SDK 版本      |
-      |      release       |  string  |       手机系统版本号       |
-      |  statusBarHeight   |  number  | 手机系统状态栏的高度（px） |
-      |   systemLanguage   |  string  |    当前手机上使用的语言    |
-      | systemLanguageList | string[] |  当前手机上支持的语言列表  |
+      |     属性名      | 属性类型 |          属性说明          |
+      | :-------------: | :------: | :------------------------: |
+      |      brand      |  string  |          手机品牌          |
+      |      model      |  string  |          手机型号          |
+      |    hardware     |  string  |        手机硬件信息        |
+      |     sdkInt      |  number  |      Android SDK 版本      |
+      |     release     |  string  |       手机系统版本号       |
+      | statusBarHeight |  number  | 手机系统状态栏的高度（px） |
+      | systemLanguage  |  string  |    当前手机上使用的语言    |
 
   
 
