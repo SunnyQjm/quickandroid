@@ -1,4 +1,3 @@
 <resources>
-    <string name="app_name">quick_android_image_picker</string>
     <string name="clip_image_permission_tip">裁剪图片需要获取读写文件的权限</string>
 </resources>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="left_drawable" format="reference"/>
+    <attr name="right_drawable" format="reference"/>
+    <attr name="top_drawable" format="reference"/>
+    <attr name="bottom_drawable" format="reference"/>
+
+    <attr name="drawable_width" format="dimension"/>
+    <attr name="drawable_height" format="dimension"/>
+
+    <attr name="left_drawable_width" format="dimension"/>
+    <attr name="left_drawable_height" format="dimension"/>
+
+    <attr name="right_drawable_width" format="dimension"/>
+    <attr name="right_drawable_height" format="dimension"/>
+
+    <attr name="top_drawable_width" format="dimension"/>
+    <attr name="top_drawable_height" format="dimension"/>
+
+    <attr name="bottom_drawable_width" format="dimension"/>
+    <attr name="bottom_drawable_height" format="dimension"/>
+
+    <declare-styleable name="DrawableEditText">
+        <attr name="left_drawable" />
+        <attr name="right_drawable" />
+        <attr name="top_drawable" />
+        <attr name="bottom_drawable" />
+
+        <attr name="drawable_width" />
+        <attr name="drawable_height" />
+
+        <attr name="left_drawable_width" />
+        <attr name="left_drawable_height" />
+
+        <attr name="right_drawable_width" />
+        <attr name="right_drawable_height" />
+
+        <attr name="top_drawable_width" />
+        <attr name="top_drawable_height" />
+
+        <attr name="bottom_drawable_width" />
+        <attr name="bottom_drawable_height" />
+
+    </declare-styleable>
+
+    <declare-styleable name="DrawableTextView">
+        <attr name="left_drawable" />
+        <attr name="right_drawable" />
+        <attr name="top_drawable" />
+        <attr name="bottom_drawable" />
+
+        <attr name="drawable_width" />
+        <attr name="drawable_height" />
+
+        <attr name="left_drawable_width" />
+        <attr name="left_drawable_height" />
+
+        <attr name="right_drawable_width" />
+        <attr name="right_drawable_height" />
+
+        <attr name="top_drawable_width" />
+        <attr name="top_drawable_height" />
+
+        <attr name="bottom_drawable_width" />
+        <attr name="bottom_drawable_height" />
+    </declare-styleable>
+
+    <declare-styleable name="DrawableButton">
+        <attr name="left_drawable" />
+        <attr name="right_drawable" />
+        <attr name="top_drawable" />
+        <attr name="bottom_drawable" />
+
+        <attr name="drawable_width" />
+        <attr name="drawable_height" />
+
+        <attr name="left_drawable_width" />
+        <attr name="left_drawable_height" />
+
+        <attr name="right_drawable_width" />
+        <attr name="right_drawable_height" />
+
+        <attr name="top_drawable_width" />
+        <attr name="top_drawable_height" />
+
+        <attr name="bottom_drawable_width" />
+        <attr name="bottom_drawable_height" />
+    </declare-styleable>
+</resources>

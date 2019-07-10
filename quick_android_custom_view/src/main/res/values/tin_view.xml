@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="tints" format="enum">
+        <enum name="NONE" value="0x0000"/>
+        <enum name="LEFT" value="0x0001"/>
+        <enum name="TOP" value="0x0002"/>
+        <enum name="RIGHT" value="0x0004"/>
+        <enum name="BOTTOM" value="0x0008"/>
+        <enum name="ALL" value="0x000f"/>
+    </attr>
+
+    <attr name="tinColor" format="color"/>
+    <declare-styleable name="TinEditText">
+        <attr name="tints"/>
+        <attr name="tinColor"/>
+        <attr name="focusedTinColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="TinTextView">
+        <attr name="tints"/>
+        <attr name="tinColor"/>
+    </declare-styleable>
+
+    <declare-styleable name="TinButton">
+        <attr name="tints"/>
+        <attr name="tinColor"/>
+    </declare-styleable>
+</resources>

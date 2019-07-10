@@ -1,1 +1,1 @@
-include ':app', ':quick_android_base', ':quick_android_mvp', ':quick_android_qrcode', ':quick_android_image_picker', ':quick_android_webview', ':quick_android_rx_permission'
+include ':app', ':quick_android_base', ':quick_android_mvp', ':quick_android_qrcode', ':quick_android_image_picker', ':quick_android_webview', ':quick_android_rx_permission', ':quick_android_custom_view'
