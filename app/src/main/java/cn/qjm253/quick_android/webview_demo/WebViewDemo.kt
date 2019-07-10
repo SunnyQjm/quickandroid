@@ -15,6 +15,6 @@ class WebViewDemo : BaseQuickAndroidActivity() {
 
         QuickAndroidWebBridge(this)
             .bindWebView(quickAndroidWebview)
-        quickAndroidWebview.loadUrl("file:///android_asset/test.html")
+        quickAndroidWebview.loadUrl("file:///android_asset/www/test.html")
     }
 }

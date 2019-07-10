@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<script src="quick_android_web_bridge.bundle.js"></script>
+<script type="text/javascript">
+    function doScanCode() {
+        console.log("开始扫码");
+        QuickAndroidWebBridge.scanCode()
+            .then(res => {
+                QuickAndroidWebBridge.toast(res);
+                console.log("扫码成功");
+            })
+            .catch(err => {
+                console.log(`扫码失败: ${err}`);
+            })
+    }
+
+    function doGetSystemInfo() {
+        console.log("开始获取系统信息");
+        QuickAndroidWebBridge.getSystemInfo()
+            .then(res => {
+                QuickAndroidWebBridge.toast(res);
+                console.log("获取系统信息成功");
+            })
+            .catch(err => {
+                console.log(`获取系统信息失败: ${err}`);
+            })
+    }
+
+
+</script>
+<body>
+<button type="button" name="button" onclick="doScanCode()">点击扫码</button>
+<button type="button" onclick="doGetSystemInfo()">点击获取系统信息</button>
+<input type="file" name="" value="">
+</body>
+</html>

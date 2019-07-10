@@ -5,6 +5,8 @@ import cn.qjm253.quick_android_base.QuickAndroid
 import cn.qjm253.quick_android_mvp.*
 import cn.qjm253.quick_android_base.extensions.e
 import cn.qjm253.quick_android_base.extensions.i
+import cn.qjm253.quick_android_base.extensions.toJson
+import cn.qjm253.quick_android_base.util.SystemInfoHelper
 import cn.qjm253.quick_android_mvp.model.inernet.rx.QuickAndroidMVPResultDeal
 import com.orhanobut.logger.Logger
 import com.tencent.smtt.sdk.QbSdk
@@ -63,5 +65,10 @@ class App : Application() {
             }
 
         })
+
+        SystemInfoHelper
+            .buildSystemInfo(this)
+            .toJson()
+            .i()
     }
 }
