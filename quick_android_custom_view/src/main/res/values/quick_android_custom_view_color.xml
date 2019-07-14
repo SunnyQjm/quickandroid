@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="doyin_black">#161923</color>
+    <color name="light_grey">#eee</color>
+    <color name="grey">#bbb</color>
+    <color name="white">#fff</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="text_gray">#333333</color>
+    <color name="black">#000</color>
+    <color name="red">#f00</color>
+
+    <color name="line_gray">#dddddd</color>
+</resources>

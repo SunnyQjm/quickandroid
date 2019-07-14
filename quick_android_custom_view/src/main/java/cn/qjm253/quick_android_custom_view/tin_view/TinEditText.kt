@@ -19,7 +19,7 @@ import cn.qjm253.quick_android_custom_view.custom_drawable_size_view.DrawableEdi
  * @date 19-7-10 下午10:15
  */
 
-class TinEditText @JvmOverloads constructor(
+open class TinEditText @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = android.R.attr.editTextStyle
 ) : DrawableEditText(context, attrs, defStyleAttr), View.OnFocusChangeListener {
 
@@ -39,9 +39,10 @@ class TinEditText @JvmOverloads constructor(
     private var tinColor: ColorStateList? = null
     private var focusedTinColor: ColorStateList? = null
 
-    private lateinit var mDrawables: Array<Drawable?>
+    protected lateinit var mDrawables: Array<Drawable?>
 
     init {
+
         if (!isInEditMode) {
             mDrawables = compoundDrawables
             loadFromAttribute(context, attrs, defStyleAttr)

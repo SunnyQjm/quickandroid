@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="menu_title" format="string|reference" />
+    <attr name="menu_title_size" format="dimension" />
+    <attr name="menu_title_color" format="color" />
+    <attr name="right_margin" format="dimension" />
+    <attr name="left_margin" format="dimension" />
+
+    <attr name="menu_value" format="string|reference" />
+    <attr name="menu_value_size" format="dimension" />
+    <attr name="menu_value_color" format="color" />
+    <attr name="left_resource" format="reference" />
+    <attr name="right_resource" format="reference" />
+    <attr name="left_icon_size" format="dimension" />
+    <attr name="right_icon_size" format="dimension" />
+    <attr name="is_right_icon_visible" format="boolean" />
+    <attr name="is_left_icon_visible" format="boolean" />
+    <attr name="left_icon_text_span" format="dimension" />
+
+    <declare-styleable name="LineMenuItem">
+        <attr name="menu_title" />
+        <attr name="menu_title_size" />
+        <attr name="menu_title_color" />
+        <attr name="right_margin" />
+        <attr name="left_margin" />
+        <attr name="menu_value" />
+        <attr name="menu_value_size" />
+        <attr name="menu_value_color" />
+        <attr name="left_resource" />
+        <attr name="right_resource" />
+        <attr name="left_icon_size" />
+        <attr name="right_icon_size" />
+        <attr name="is_right_icon_visible" />
+        <attr name="is_left_icon_visible" />
+        <attr name="left_icon_text_span" />
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableLineMenuItem">
+        <attr name="menu_height" format="dimension"/>
+        <attr name="menu_width" format="dimension"/>
+        <attr name="open" format="boolean"/>
+        <attr name="openedAble" format="boolean"/>
+        <attr name="menu_bg" format="color|reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="LineMenuSwitch">
+        <attr name="menu_title" />
+        <attr name="menu_title_size" />
+        <attr name="menu_title_color" />
+        <attr name="right_margin" />
+        <attr name="left_margin" />
+        <attr name="switch_track" format="reference" />
+        <attr name="switch_thumb" format="reference" />
+    </declare-styleable>
+</resources>
