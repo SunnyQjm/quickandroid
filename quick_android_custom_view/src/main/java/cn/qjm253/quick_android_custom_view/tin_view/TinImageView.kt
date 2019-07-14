@@ -10,6 +10,8 @@ import androidx.core.graphics.drawable.DrawableCompat
 import cn.qjm253.quick_android_custom_view.R
 
 /**
+ * 这是一个 DrawableButton 的封装组件，在AppCompatImageView的基础上支持设置drawable的tinColor
+ *
  * @author SunnyQjm
  * @date 19-7-11 下午4:46
  */

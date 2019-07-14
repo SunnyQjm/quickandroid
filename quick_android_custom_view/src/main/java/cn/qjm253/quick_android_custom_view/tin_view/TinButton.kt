@@ -11,6 +11,9 @@ import cn.qjm253.quick_android_custom_view.R
 import cn.qjm253.quick_android_custom_view.custom_drawable_size_view.DrawableButton
 
 /**
+ * 这是一个 DrawableButton 的封装组件，在DrawableButton的基础上支持设置drawable的tinColor
+ *
+ * @see DrawableButton
  * @author SunnyQjm
  * @date 19-7-10 下午10:33
  */
