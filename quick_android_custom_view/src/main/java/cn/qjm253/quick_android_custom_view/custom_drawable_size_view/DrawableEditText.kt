@@ -20,7 +20,7 @@ import cn.qjm253.quick_android_custom_view.R
  * @date 19-7-10 下午9:04
  */
 
-open class DrawableEditText constructor(
+open class DrawableEditText @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = android.R.attr.editTextStyle
 ) : AppCompatEditText(context, attrs, defStyleAttr) {
     companion object {

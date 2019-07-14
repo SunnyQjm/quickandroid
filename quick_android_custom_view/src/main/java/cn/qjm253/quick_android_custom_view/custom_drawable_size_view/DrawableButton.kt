@@ -21,7 +21,7 @@ import cn.qjm253.quick_android_custom_view.R
  */
 
 
-open class DrawableButton constructor(
+open class DrawableButton @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = android.R.attr.buttonStyle
 ) : AppCompatButton(context, attrs, defStyleAttr) {
     companion object {

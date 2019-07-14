@@ -19,7 +19,7 @@ import cn.qjm253.quick_android_custom_view.custom_drawable_size_view.DrawableEdi
  * @date 19-7-10 下午10:15
  */
 
-class TinEditText constructor(
+class TinEditText @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = android.R.attr.editTextStyle
 ) : DrawableEditText(context, attrs, defStyleAttr), View.OnFocusChangeListener {
 
@@ -55,7 +55,7 @@ class TinEditText constructor(
     private fun loadFromAttribute(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         attrs?.let {
             val ta = context.obtainStyledAttributes(it, R.styleable.TinEditText)
-            tints = ta.getInt(R.styleable.TinEditText_tints, TinTextView.NONE)
+            tints = ta.getInt(R.styleable.TinEditText_tints, ALL)
             tinColor = ta.getColorStateList(R.styleable.TinEditText_tinColor)
             focusedTinColor = ta.getColorStateList(R.styleable.TinEditText_focusedTinColor)
             ta.recycle()
@@ -75,7 +75,7 @@ class TinEditText constructor(
      * @see TinEditText.BOTTOM   ->    底部drawable着色
      * @see TinEditText.ALL      ->    四个方向都着色
      *
-     * 如果需要单独设置两个方向可以 => TinTextView.LEFT or TinTextView.RIGHT
+     * 如果需要单独设置两个方向可以 => TinEditText.LEFT or TinEditText.RIGHT
      *
      */
     fun updateTints(tints: Int) {

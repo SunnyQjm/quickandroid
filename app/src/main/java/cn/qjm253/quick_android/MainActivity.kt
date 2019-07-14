@@ -2,6 +2,7 @@ package cn.qjm253.quick_android
 
 import android.Manifest
 import android.os.Bundle
+import cn.qjm253.quick_android.custom_view_demo.CustomViewDemoActivity
 import cn.qjm253.quick_android.mvp_demo.MVPDemoActivity
 import cn.qjm253.quick_android.webview_demo.WebViewDemo
 import cn.qjm253.quick_android_base.base.activity.BaseQuickAndroidActivity
@@ -84,6 +85,10 @@ class MainActivity : BaseQuickAndroidActivity() {
 
         btnWebviewDemo.setOnClickListener {
             jumpTo(WebViewDemo::class.java)
+        }
+
+        btnCustomViewDemo.setOnClickListener {
+            jumpTo(CustomViewDemoActivity::class.java)
         }
     }
 

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#aaa"
+        android:orientation="vertical"
+        tools:context=".custom_view_demo.CustomViewDemoActivity">
+
+    <cn.qjm253.quick_android_custom_view.custom_drawable_size_view.DrawableButton
+            android:layout_gravity="center"
+            android:background="#fff"
+            app:left_drawable="@drawable/mine"
+            app:right_drawable="@drawable/mine"
+            app:top_drawable="@drawable/mine"
+            app:bottom_drawable="@drawable/mine"
+            android:textAllCaps="false"
+            android:text="DrawableButton"
+            android:drawablePadding="10dp"
+            app:right_drawable_width="30dp"
+            app:right_drawable_height="30dp"
+            app:drawable_width="20dp"
+            app:drawable_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <cn.qjm253.quick_android_custom_view.custom_drawable_size_view.DrawableEditText
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            app:left_drawable="@drawable/mine"
+            app:drawable_width="30dp"
+            app:drawable_height="30dp"
+            android:text="DrawableEditText"
+            android:drawablePadding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <cn.qjm253.quick_android_custom_view.custom_drawable_size_view.DrawableTextView
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            app:right_drawable="@drawable/mine"
+            app:drawable_width="30dp"
+            app:drawable_height="30dp"
+            android:drawablePadding="10dp"
+            android:text="DrawableTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <cn.qjm253.quick_android_custom_view.tin_view.TinButton
+            android:id="@+id/tinButton"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            app:left_drawable="@drawable/mine"
+            app:drawable_width="30dp"
+            app:drawable_height="30dp"
+            android:drawablePadding="10dp"
+            app:tinColor="@color/colorPrimary"
+            app:tints="ALL"
+            android:text="TinButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    <cn.qjm253.quick_android_custom_view.tin_view.TinEditText
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            app:left_drawable="@drawable/mine"
+            app:drawable_width="30dp"
+            app:drawable_height="30dp"
+            app:tints="ALL"
+            android:drawablePadding="10dp"
+            app:tinColor="@color/colorPrimary"
+            android:text="TinEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <cn.qjm253.quick_android_custom_view.tin_view.TinTextView
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            app:left_drawable="@drawable/mine"
+            app:drawable_width="30dp"
+            app:drawable_height="30dp"
+            app:tints="ALL"
+            android:drawablePadding="10dp"
+            app:tinColor="@color/colorPrimary"
+            android:text="TinTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    <cn.qjm253.quick_android_custom_view.tin_view.TinImageView
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            app:drawable_width="30dp"
+            app:drawable_height="30dp"
+            android:src="@drawable/mine"
+            android:drawablePadding="10dp"
+            app:tinColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+</LinearLayout>

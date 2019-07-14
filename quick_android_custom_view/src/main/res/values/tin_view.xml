@@ -26,4 +26,8 @@
         <attr name="tints"/>
         <attr name="tinColor"/>
     </declare-styleable>
+
+    <declare-styleable name="TinImageView">
+        <attr name="tinColor"/>
+    </declare-styleable>
 </resources>

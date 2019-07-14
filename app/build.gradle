@@ -68,4 +68,5 @@ dependencies {
     implementation project(path: ':quick_android_image_picker')
     implementation project(path: ':quick_android_rx_permission')
     implementation project(path: ':quick_android_webview')
+    implementation project(path: ':quick_android_custom_view')
 }

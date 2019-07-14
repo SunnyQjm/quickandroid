@@ -18,7 +18,7 @@ import cn.qjm253.quick_android_custom_view.custom_drawable_size_view.DrawableTex
  * @date 19-7-10 下午9:12
  */
 
-class TinTextView constructor(
+class TinTextView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = android.R.attr.textViewStyle
 ) : DrawableTextView(context, attrs, defStyleAttr) {
     companion object {
@@ -47,7 +47,7 @@ class TinTextView constructor(
     private fun loadFromAttribute(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         attrs?.let {
             val ta = context.obtainStyledAttributes(it, R.styleable.TinTextView)
-            tints = ta.getInt(R.styleable.TinTextView_tints, NONE)
+            tints = ta.getInt(R.styleable.TinTextView_tints, ALL)
             ta.getColorStateList(R.styleable.TinTextView_tinColor)?.let { tinColorStateList ->
                 updateDrawablesTinColor(tinColorStateList)
             }

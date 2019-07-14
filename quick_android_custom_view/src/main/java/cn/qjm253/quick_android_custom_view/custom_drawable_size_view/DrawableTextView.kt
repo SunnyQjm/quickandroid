@@ -20,7 +20,7 @@ import cn.qjm253.quick_android_custom_view.R
  * @date 19-7-10 下午8:48
  */
 
-open class DrawableTextView constructor(
+open class DrawableTextView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null,
     defStyleAttr: Int = android.R.attr.textViewStyle
 ) : AppCompatTextView(context, attrs, defStyleAttr) {
