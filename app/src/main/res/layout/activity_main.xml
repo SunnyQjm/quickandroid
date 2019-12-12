@@ -1,48 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".MainActivity">
+
+    <cn.qjm253.quick_android_easy_bar.EasyBar
+            android:id="@+id/easyBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:title="QuickAndroid"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            app:title_color="@color/white"
+            />
+
     <Button
+            android:id="@+id/mvpDemoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:text="MVPDemo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+    <Button
+            android:id="@+id/btnScanQrCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/mvpDemoBtn" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"/>
-    <Button
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:text="scan_qr_code"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mvpDemoBtn" />
+
+    <Button
+            android:id="@+id/btnWechatStyleImagePicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnScanQrCode" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/mvpDemoBtn" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
-    <Button
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:text="Wechat Style Image Picker"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnScanQrCode" />
+
+    <Button
+            android:id="@+id/btnWebviewDemo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnWechatStyleImagePicker" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/btnScanQrCode" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
-    <Button
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:text="Webview Demo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnWebviewDemo" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/btnWechatStyleImagePicker"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnWechatStyleImagePicker" />
+
     <Button
-            android:text="Custom view demo"
+            android:id="@+id/btnCustomViewDemo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnCustomViewDemo" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/btnWebviewDemo" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Custom view demo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnWebviewDemo" />
+</LinearLayout>

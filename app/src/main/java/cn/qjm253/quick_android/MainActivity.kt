@@ -9,13 +9,14 @@ import cn.qjm253.quick_android_base.base.activity.BaseQuickAndroidActivity
 import cn.qjm253.quick_android_base.extensions.*
 import cn.qjm253.quick_android_base.util.ContentUriUtil
 import cn.qjm253.quick_android_base.util.RxSchedulersHelper
+import cn.qjm253.quick_android_easy_bar.EasyBar
+import cn.qjm253.quick_android_easy_bar.init
 import cn.qjm253.quick_android_image_picker.openWechatStyleGallery
 import cn.qjm253.quick_android_image_picker.startClipImage
 import cn.qjm253.quick_android_qrcode.scanCode
 import cn.qjm253.quick_android_rx_permission.QuickAndroidRxPermission
 import com.qingmei2.rximagepicker_extension.MimeType
 import com.qingmei2.rximagepicker_extension_wechat.WechatConfigrationBuilder
-import com.qingmei2.rximagepicker_extension_zhihu.ZhihuConfigurationBuilder
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseQuickAndroidActivity() {
@@ -24,6 +25,12 @@ class MainActivity : BaseQuickAndroidActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        easyBar.init(
+            mode = EasyBar.Mode.NONE,
+            title = "QuickAndroid"
+        )
+
 
         mvpDemoBtn.setOnClickListener {
             jumpTo(MVPDemoActivity::class.java)
@@ -46,7 +53,6 @@ class MainActivity : BaseQuickAndroidActivity() {
                 }, {
                     "complete".i()
                 })
-//            easyRequestPermissions(arrayOf(Manifest.permission.CAMERA), R.string.camera_permission_require, 2)
         }
 
         btnWechatStyleImagePicker.setOnClickListener {
