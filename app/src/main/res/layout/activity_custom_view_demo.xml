@@ -100,4 +100,10 @@
             app:tinColor="@color/colorPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
+    <cn.qjm253.quick_android_custom_view.other.ClearAbleEditText
+            android:text="ClearAbleEditText"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 </LinearLayout>

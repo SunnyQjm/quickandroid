@@ -16,7 +16,7 @@ import cn.qjm253.quick_android_custom_view.tin_view.TinEditText
  * @date 19-7-14 下午8:01
  */
 
-class ClearAbleEditText(
+class ClearAbleEditText @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = android.R.attr.editTextStyle
 ) : TinEditText(context, attrs, defStyleAttr) {
 
@@ -63,8 +63,12 @@ class ClearAbleEditText(
         return super.onTouchEvent(event)
     }
 
-    private fun changeDrawables(left: Drawable? = mDrawables[0], top: Drawable? = mDrawables[1], right: Drawable? = mDrawables[2],
-                                bottom: Drawable? = mDrawables[3]) {
+    private fun changeDrawables(
+        left: Drawable? = mDrawables[0],
+        top: Drawable? = mDrawables[1],
+        right: Drawable? = mDrawables[2],
+        bottom: Drawable? = mDrawables[3]
+    ) {
         setCompoundDrawables(left, top, right, bottom)
     }
 }
