@@ -1,5 +1,6 @@
 package cn.qjm253.quick_android_qrcode
 
+import androidx.annotation.DrawableRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import cn.qjm253.quick_android_base.QuickAndroid
@@ -18,6 +19,12 @@ import io.reactivex.Observable
 class QuickAndroidQrCode {
 
     private var mQrCodeTransFragment: Lazy<QuickAndroidQrCodeTransFragment>
+    private var backIconRes: Int = R.drawable.quick_android_qr_code_default_back
+    private var backIconSize: Float = 30f
+    private var backIconTopMargin: Float = 15f
+    private var backIconRightMargin: Float = 0f
+    private var backIconBottomMargin: Float = 0f
+    private var backIconLeftMargin: Float = 15f
 
     companion object {
         const val TAG = "QuickAndroidQrCode"
@@ -42,10 +49,49 @@ class QuickAndroidQrCode {
     }
 
     /**
+     * 设置返回按钮的资源
+     */
+    fun setBackIconRes(@DrawableRes icon: Int): QuickAndroidQrCode {
+        backIconRes = icon
+        return this
+    }
+
+    /**
+     * 设置返回按钮的大小
+     * ps: 单位为dp
+     */
+    fun setBackIconSize(size: Float): QuickAndroidQrCode {
+        backIconSize = size
+        return this
+    }
+
+    /**
+     * 设置返回按钮的边距
+     * 1. 单位为dp
+     * 2. 代码中已经自动去掉了状态栏的高度，不用考虑状态栏
+     */
+    fun setBackIconMargin(top: Float, right: Float, bottom: Float, left: Float): QuickAndroidQrCode {
+        backIconTopMargin = top
+        backIconRightMargin = right
+        backIconBottomMargin = bottom
+        backIconLeftMargin = left
+        return this
+    }
+
+    /**
      * 跳转到扫码界面，并返回一个Observable对象用于接收扫码结果
      */
     fun scanQrCode(): Observable<QrCodeResult> {
-        return mQrCodeTransFragment.value.scanCode(QuickAndroidQrCodeActivity::class.java)
+        return mQrCodeTransFragment.value
+            .setBackIconRes(backIconRes)
+            .setBackIconSize(backIconSize)
+            .setBackIconMargin(
+                backIconTopMargin,
+                backIconRightMargin,
+                backIconBottomMargin,
+                backIconLeftMargin
+            )
+            .scanCode(QuickAndroidQrCodeActivity::class.java)
             .compose(RxSchedulersHelper.io_main())
     }
 }

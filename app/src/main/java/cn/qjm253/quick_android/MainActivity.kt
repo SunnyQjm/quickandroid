@@ -13,6 +13,7 @@ import cn.qjm253.quick_android_easy_bar.EasyBar
 import cn.qjm253.quick_android_easy_bar.init
 import cn.qjm253.quick_android_image_picker.openWechatStyleGallery
 import cn.qjm253.quick_android_image_picker.startClipImage
+import cn.qjm253.quick_android_qrcode.QuickAndroidQrCode
 import cn.qjm253.quick_android_qrcode.scanCode
 import cn.qjm253.quick_android_rx_permission.QuickAndroidRxPermission
 import com.qingmei2.rximagepicker_extension.MimeType
@@ -43,7 +44,11 @@ class MainActivity : BaseQuickAndroidActivity() {
                 .subscribe({
                     "fuck?".i()
                     if (it.granted) {
-                        scanCode()
+                        QuickAndroidQrCode.create(this)
+                            .setBackIconRes(R.drawable.back)
+                            .setBackIconSize(30f)
+                            .setBackIconMargin(15f, 0f, 0f, 15f)
+                            .scanQrCode()
                             .subscribe { qrResult ->
                                 toast(qrResult.content)
                             }

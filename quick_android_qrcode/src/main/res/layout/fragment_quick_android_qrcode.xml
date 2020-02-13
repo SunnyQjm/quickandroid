@@ -7,6 +7,8 @@
                 android:background="#000"
 >
 
+
+
     <cn.bingoogolapple.qrcode.zxing.ZXingView
             android:id="@+id/zxingview"
             android:layout_width="match_parent"
@@ -25,5 +27,12 @@
             app:qrcv_scanLineSize="1dp"
             app:qrcv_verticalBias="0.5"
     />
+
+    <ImageView
+            android:id="@+id/imgBack"
+            android:src="@drawable/quick_android_qr_code_default_back"
+            android:layout_marginStart="15dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
 
 </RelativeLayout>
