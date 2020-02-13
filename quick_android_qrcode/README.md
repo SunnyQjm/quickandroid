@@ -4,7 +4,7 @@
 
 
 
-- ### 使用
+- ### 基本使用
 
 ```kotlin
 QuickAndroidQrCode
@@ -25,6 +25,22 @@ QuickAndroid
         
     })
 ```
+
+- ### 进阶
+    - **修改返回按钮的样式**
+        ```kotlin
+        QuickAndroidQrCode
+        	.create(context)		                          // context 可以是Activity或者Fragment
+            .setBackIconRes(R.drawable.back)                  // 设置返回按钮的资源
+  	        .setBackIconSize(30f)                             // 设置返回按钮的大小
+            .setBackIconMargin(top, right, bottom, left)      // 设置返回按钮的边距
+            .scanQrCode()
+            	.subscribe({qrCodeResult->			// 扫码成功
+                
+                }, { err->							// 扫码失败（权限被拒绝，摄像头打开失败等）
+                    
+                })
+        ```
 
 
 
