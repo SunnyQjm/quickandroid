@@ -5,6 +5,7 @@ import android.os.Bundle
 import cn.qjm253.quick_android.custom_view_demo.CustomViewDemoActivity
 import cn.qjm253.quick_android.mvp_demo.MVPDemoActivity
 import cn.qjm253.quick_android.webview_demo.WebViewDemo
+import cn.qjm253.quick_android_base.QuickAndroid
 import cn.qjm253.quick_android_base.base.activity.BaseQuickAndroidActivity
 import cn.qjm253.quick_android_base.extensions.*
 import cn.qjm253.quick_android_base.util.ContentUriUtil
@@ -14,15 +15,18 @@ import cn.qjm253.quick_android_easy_bar.init
 import cn.qjm253.quick_android_image_picker.openWechatStyleGallery
 import cn.qjm253.quick_android_image_picker.startClipImage
 import cn.qjm253.quick_android_qrcode.QuickAndroidQrCode
-import cn.qjm253.quick_android_qrcode.scanCode
 import cn.qjm253.quick_android_rx_permission.QuickAndroidRxPermission
+import cn.qjm253.quick_android_rx_permission.createRxPermission
+import com.example.quick_android_file_picker.QuickAndroidFilePicker
+import com.example.quick_android_file_picker.createFilePicker
 import com.qingmei2.rximagepicker_extension.MimeType
 import com.qingmei2.rximagepicker_extension_wechat.WechatConfigrationBuilder
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseQuickAndroidActivity() {
 
-    val rxPermission = QuickAndroidRxPermission(this)
+    private val rxPermission = QuickAndroidRxPermission(this)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -100,6 +104,28 @@ class MainActivity : BaseQuickAndroidActivity() {
 
         btnCustomViewDemo.setOnClickListener {
             jumpTo(CustomViewDemoActivity::class.java)
+        }
+
+        btnPickerFile.setOnClickListener {
+            QuickAndroid
+                .createRxPermission(this)
+                .request(
+                    arrayOf(
+                        Manifest.permission.READ_EXTERNAL_STORAGE
+                    )
+                )
+                .subscribe {
+                    if (it.granted) {
+                        checkMyPermission(Manifest.permission.READ_EXTERNAL_STORAGE, {
+                            QuickAndroid
+                                .createFilePicker(this)
+                                .pickerFile()
+                                .subscribe { fpr ->
+                                    toast(fpr.path)
+                                }
+                        })
+                    }
+                }
         }
     }
 

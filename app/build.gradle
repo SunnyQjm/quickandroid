@@ -64,4 +64,5 @@ dependencies {
     implementation project(path: ':quick_android_webview')
     implementation project(path: ':quick_android_custom_view')
     implementation project(path: ':quick_android_easy_bar')
+    implementation project(path: ':quick_android_file_picker')
 }
