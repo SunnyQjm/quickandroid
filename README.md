@@ -41,7 +41,7 @@ Add it in your root build.gradle at the end of repositories:
     // 引入quick_android_webview模块，来接入H5容器能力（可选）
     implementation 'com.github.SunnyQjm.quickandroid:quick_android_webview:${last_version}'
     
-    // 引入文件选择功能（调用系统的文件管理器）
+    // 引入文件选择功能（调用系统的文件管理器）（可选）
     implementation 'com.github.SunnyQjm.quickandroid:quick_android_file_picker:${last_version}'
     ```
 
