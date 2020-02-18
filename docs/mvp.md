@@ -1,5 +1,3 @@
-
-
 > ## quick_android_mvp模块
 >
 > 本模块提供了一个快速实现MVP架构的框架，并且封装了网络请求（Retrofit + RxJava）
@@ -14,22 +12,23 @@
   - 初始化
 
     ```kotlin
-        /**
-         * QuickAndroidMVP 模块初始化操作
-         *
-         * @param context                       Application 对象
-         * @param baseUrl                       网络请求的前缀， eg.: https://example.cn/
-         * @param enablePersistentCookieJar     是否开启Cookie的自动持久化和发送
-         */
-        QuickAndroidMVP
-          .init(
-              context, baseUrl, enablePersistentCookieJar
-          )
-
-        // 当然，如果使用Kotlin开发也可以使用下面的统一扩展接口，参数说明同上
-        QuickAndroid.initMVP(
-            context, baseUrl, enablePersistentCookieJar
-        )
+    /**
+     * QuickAndroidMVP 模块初始化操作
+     *
+     * @param context                       Application 对象
+     * @param baseUrl                       网络请求的前缀， eg.: https://example.cn/
+     * @param enablePersistentCookieJar     是否开启Cookie的自动持久化和发送
+     */
+    QuickAndroidMVP
+      .init(
+          context, baseUrl, enablePersistentCookieJar
+      )
+      
+      
+    // 当然，如果使用Kotlin开发也可以使用下面的统一扩展接口，参数说明同上
+    QuickAndroid.initMVP(
+        context, baseUrl, enablePersistentCookieJar
+    )
     ```
 
     具体MVP架构的使用方式参考本项目的[demo](https://github.com/SunnyQjm/quickandroid/tree/master/app/src/main/java/cn/qjm253/quick_android/mvp_demo)
@@ -82,6 +81,7 @@
      */
     QuickAndroidMVP.addOnAPICompleteListener(onComplete)
     
+    
     // 可以通过下面的方法清空所有对onComplete事件的监听器
     QuickAndroidMVP.clearOnAPICompleteListeners()
     ```
@@ -97,6 +97,7 @@
      */
     QuickAndroidMVP.addOnAPICompleteListener(onBeforeNextListener)
     
+    
     QuickAndroidMVP.clearOnAPIBeforeNextListeners()
     ```
 
@@ -110,6 +111,7 @@
      * @see cn.qjm253.quick_android_mvp.model.inernet.rx.qaSubscribe
      */
     QuickAndroidMVP.addOnAPIErrorListener(onErrorListener)
+    
     
     // 可以通过下面的方法清空所有对onError事件的监听器
     QuickAndroidMVP.clearOnAPIErrorListeners()

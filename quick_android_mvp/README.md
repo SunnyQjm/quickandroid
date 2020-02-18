@@ -1,5 +1,3 @@
-
-
 > ## quick_android_mvp模块
 >
 > 本模块提供了一个快速实现MVP架构的框架，并且封装了网络请求（Retrofit + RxJava）

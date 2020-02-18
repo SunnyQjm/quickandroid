@@ -99,6 +99,8 @@
     	})
     ```
 
+    
+
     - 获取到的信息如下所示：
 
       |     属性名      | 属性类型 |          属性说明          |
@@ -111,5 +113,5 @@
       | statusBarHeight |  number  | 手机系统状态栏的高度（px） |
       | systemLanguage  |  string  |    当前手机上使用的语言    |
 
-
+  
 
