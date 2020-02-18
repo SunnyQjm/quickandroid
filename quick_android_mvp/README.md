@@ -24,7 +24,6 @@
           context, baseUrl, enablePersistentCookieJar
       )
       
-      
     // 当然，如果使用Kotlin开发也可以使用下面的统一扩展接口，参数说明同上
     QuickAndroid.initMVP(
         context, baseUrl, enablePersistentCookieJar
@@ -81,7 +80,6 @@
      */
     QuickAndroidMVP.addOnAPICompleteListener(onComplete)
     
-    
     // 可以通过下面的方法清空所有对onComplete事件的监听器
     QuickAndroidMVP.clearOnAPICompleteListeners()
     ```
@@ -97,7 +95,6 @@
      */
     QuickAndroidMVP.addOnAPICompleteListener(onBeforeNextListener)
     
-    
     QuickAndroidMVP.clearOnAPIBeforeNextListeners()
     ```
 
@@ -111,7 +108,6 @@
      * @see cn.qjm253.quick_android_mvp.model.inernet.rx.qaSubscribe
      */
     QuickAndroidMVP.addOnAPIErrorListener(onErrorListener)
-    
     
     // 可以通过下面的方法清空所有对onError事件的监听器
     QuickAndroidMVP.clearOnAPIErrorListeners()
