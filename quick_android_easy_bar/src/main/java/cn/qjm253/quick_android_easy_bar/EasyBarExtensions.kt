@@ -3,6 +3,8 @@ package cn.qjm253.quick_android_easy_bar
 
 import android.annotation.SuppressLint
 import android.view.View
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
@@ -20,7 +22,9 @@ class EasyBarParams(
     @DrawableRes val rightRes: Int = 0,
     val leftText: String = "",
     val rightText: String = "", @StringRes val titleRes: Int = -1,
-    val isCoverCallback: Boolean = true
+    val isCoverCallback: Boolean = true,
+    @ColorRes
+    val tinColor: Int = -1
 ) {
 }
 
@@ -35,7 +39,8 @@ fun EasyBar.init(easyBarParams: EasyBarParams) {
         easyBarParams.leftText,
         easyBarParams.rightText,
         easyBarParams.titleRes,
-        easyBarParams.isCoverCallback
+        easyBarParams.isCoverCallback,
+        easyBarParams.tinColor
     )
 }
 
@@ -53,7 +58,9 @@ fun EasyBar.init(
     @DrawableRes rightRes: Int = 0,
     leftText: String = "",
     rightText: String = "", @StringRes titleRes: Int = -1,
-    isCoverCallback: Boolean = true
+    isCoverCallback: Boolean = true,
+    @ColorRes tinColor: Int = -1
+
 ) {
     this.setDisplayMode(mode)
     if (titleRes > 0)
@@ -64,6 +71,10 @@ fun EasyBar.init(
     this.setLeftText(leftText)
     this.setRightText(rightText)
     this.setLeftIcon(leftRes)
+    if (tinColor > 0) {
+        this.getLeftIcon()?.updateDrawablesTinColor(tinColor)
+        this.getRightIcon()?.updateDrawablesTinColor(tinColor)
+    }
     if (isCoverCallback)
         this.setOnEasyBarClickListener(object : EasyBar.OnEasyBarClickListener {
             override fun onLeftIconClick(view: View) {

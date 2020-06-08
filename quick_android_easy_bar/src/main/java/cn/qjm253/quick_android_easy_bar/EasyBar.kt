@@ -18,6 +18,7 @@ import androidx.annotation.Dimension
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import cn.qjm253.quick_android_base.util.DisplayUtils
+import cn.qjm253.quick_android_custom_view.tin_view.TinImageView
 
 
 /**
@@ -48,8 +49,8 @@ class EasyBar @JvmOverloads constructor(
     private var displayMode: Mode = Mode.TEXT
 
 
-    private lateinit var imgLeft: ImageView
-    private lateinit var imgRight: ImageView
+    private lateinit var imgLeft: TinImageView
+    private lateinit var imgRight: TinImageView
     private lateinit var tvTitle: TextView
     private lateinit var tvLeftText: TextView
     private lateinit var tvRightText: TextView
@@ -64,7 +65,7 @@ class EasyBar @JvmOverloads constructor(
     private fun initView(context: Context) {
 
         //left icon
-        imgLeft = ImageView(context)
+        imgLeft = TinImageView(context)
         imgLeft.setImageResource(leftIcon)
         imgLeft.scaleType = ImageView.ScaleType.FIT_CENTER
         val imgLeftParam = RelativeLayout.LayoutParams(
@@ -110,14 +111,14 @@ class EasyBar @JvmOverloads constructor(
         tvLeftText = TextView(context)
         tvLeftText.textSize = titleSize.toFloat()
         tvLeftText.setTextColor(titleColor)
-        val tv_left_text_param = RelativeLayout.LayoutParams(
+        val tvLeftTextParam = RelativeLayout.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
-        tv_left_text_param.addRule(RelativeLayout.ALIGN_PARENT_LEFT)
-        tv_left_text_param.addRule(RelativeLayout.CENTER_VERTICAL)
-        tv_left_text_param.leftMargin = iconMargin
-        tvLeftText.layoutParams = tv_left_text_param
+        tvLeftTextParam.addRule(RelativeLayout.ALIGN_PARENT_LEFT)
+        tvLeftTextParam.addRule(RelativeLayout.CENTER_VERTICAL)
+        tvLeftTextParam.leftMargin = iconMargin
+        tvLeftText.layoutParams = tvLeftTextParam
         addView(tvLeftText)
         tvLeftText.text = leftText
         tvLeftText.visibility = View.INVISIBLE
@@ -146,7 +147,7 @@ class EasyBar @JvmOverloads constructor(
         }
 
         //right icon
-        imgRight = ImageView(context)
+        imgRight = TinImageView(context)
         imgRight.setImageResource(rightIcon)
         imgRight.scaleType = ImageView.ScaleType.FIT_CENTER
         val imgRightParam = RelativeLayout.LayoutParams(
@@ -243,7 +244,7 @@ class EasyBar @JvmOverloads constructor(
         imgRight.setImageResource(res)
     }
 
-    fun getRightIcon(): View? {
+    fun getRightIcon(): TinImageView? {
         return imgRight
     }
 
@@ -261,9 +262,12 @@ class EasyBar @JvmOverloads constructor(
 
     fun setLeftIcon(@DrawableRes res: Int) {
         imgLeft.setImageResource(res)
+        println("drawable: ${imgLeft.drawable}")
+        println("drawable state: ${imgLeft.drawableState}")
+        println("drawing time: ${imgLeft.drawingTime}")
     }
 
-    fun getLeftIcon(): View? {
+    fun getLeftIcon(): TinImageView? {
         return imgLeft
     }
 

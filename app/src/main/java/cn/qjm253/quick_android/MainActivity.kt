@@ -32,9 +32,18 @@ class MainActivity : BaseQuickAndroidActivity() {
         setContentView(R.layout.activity_main)
 
         easyBar.init(
-            mode = EasyBar.Mode.NONE,
-            title = "QuickAndroid"
+            mode = EasyBar.Mode.ICON,
+            title = "QuickAndroid1",
+            leftText = "fuck",
+            leftCallback = {
+                toast("fuck")
+            },
+            tinColor = R.color.black
         )
+
+//        easyBar.getLeftIc()?.post {
+//            easyBar.getLeftonIcon()?.updateDrawablesTinColor(R.color.red)
+//        }
 
 
         mvpDemoBtn.setOnClickListener {

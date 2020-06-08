@@ -19,12 +19,11 @@ object FileUtils {
     //获取根目录
     val appPath: String
         get() {
-            var sdDir: File? = null
             val sdCardExist = Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED
-            if (sdCardExist) {
-                sdDir = File(Environment.getExternalStorageDirectory().path + "/" + QuickAndroid.APP_NAME + "/")
+            val sdDir = if (sdCardExist) {
+                File(Environment.getExternalStorageDirectory().path + "/" + QuickAndroid.APP_NAME + "/")
             } else {
-                sdDir = File(Environment.getDataDirectory().toString() + "/" + QuickAndroid.APP_NAME + "/")
+                File(Environment.getDataDirectory().toString() + "/" + QuickAndroid.APP_NAME + "/")
             }
             if (!sdDir.exists()) {
                 sdDir.mkdirs()

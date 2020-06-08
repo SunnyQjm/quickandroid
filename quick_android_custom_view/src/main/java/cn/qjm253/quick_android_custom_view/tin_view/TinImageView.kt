@@ -2,6 +2,7 @@ package cn.qjm253.quick_android_custom_view.tin_view
 
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import androidx.annotation.ColorRes
 import androidx.appcompat.widget.AppCompatImageView
@@ -20,7 +21,7 @@ class TinImageView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : AppCompatImageView(context, attrs, defStyleAttr) {
 
-    private var mDrawable = drawable
+    private var mDrawable: Drawable? = drawable
 
     init {
         loadFromAttribute(context, attrs, defStyleAttr)
@@ -50,10 +51,15 @@ class TinImageView @JvmOverloads constructor(
      * 设置tinColor的颜色
      */
     private fun updateDrawablesTinColor(colorStateList: ColorStateList?) {
+        if (mDrawable == null) {
+            mDrawable = drawable
+        }
         colorStateList?.let {
-            mDrawable = DrawableCompat.wrap(mDrawable.mutate())
-            DrawableCompat.setTintList(mDrawable, colorStateList)
-            setImageDrawable(mDrawable)
+            mDrawable?.let { _mDrawable ->
+                mDrawable = DrawableCompat.wrap(_mDrawable.mutate())
+                DrawableCompat.setTintList(mDrawable!!, colorStateList)
+                setImageDrawable(mDrawable)
+            }
         }
     }
 }
