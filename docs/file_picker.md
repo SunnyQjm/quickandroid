@@ -22,9 +22,9 @@
     ps: `checkMyPermission` 为 [quick_android_base模块文档](https://github.com/SunnyQjm/quickandroid/tree/master/quick_android_base) 模块提供的用于检查权限是否存在的 `Context` 类的扩展方法
 
     ```kotlin
-    QuickAndroidFilePicker
-    	.create(this)
-    	.request(
+    QuickAndroid
+        .createRxPermission(this)
+        .request(
             arrayOf(
                 Manifest.permission.READ_EXTERNAL_STORAGE
             )
@@ -32,8 +32,8 @@
         .subscribe {
             if (it.granted) {
                 checkMyPermission(Manifest.permission.READ_EXTERNAL_STORAGE, {
-                    QuickAndroid
-                        .createFilePicker(this)
+                    QuickAndroidFilePicker
+                        .create(this)
                         .pickerFile()
                         .subscribe { fpr ->
                             toast(fpr.path)
